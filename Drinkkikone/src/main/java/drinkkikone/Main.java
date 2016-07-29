@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package drinkkikone;
 
 import drinkkikone.osat.Ainesosa;
@@ -10,14 +6,9 @@ import drinkkikone.osat.Baarikaappi;
 import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 
-/**
- *
- * @author Viljami
- */
 public class Main {
     
     public static void main(String[] args) {
-            //aaa
         Kirjanpito tiedot = new Kirjanpito();
         Baarikaappi b = new Baarikaappi(tiedot);
         
@@ -33,10 +24,10 @@ public class Main {
         System.out.println("");
         System.out.println(tiedot.getDrinkit().get(0));
         System.out.println("");
-        for (Drinkki drinkit : tiedot.getDrinkit()) {
+        for (Drinkki drinkki : tiedot.getDrinkit()) {
             boolean onko = false;
             boolean apu = true;
-            for (Ainesosa osa : drinkit.getAineet()) {
+            for (Ainesosa osa : drinkki.getAineet()) {
                 for (Ainesosa kaapista : tiedot.getOsat()) {
                     if (kaapista.getNimi().equals(osa.getNimi())) {
                         onko = true;

@@ -1,5 +1,5 @@
-**Aihe:** laskin, joka kykenee suorittamaan yleisimmät laskutoimitukset. Käyttöliittymä koostuu näytöstä, johon syötetään käytettävät arvot ja saadaan laskun tulos. Näytön alapuolella on käytössä olevat laskutoimitukset buttoneina, joita painamalla laskin valitsee laskutoimituksen.
+**Aihe:** Drinkkikone, joka tutkii baarikaapissa olevien juomien sisällön ja ehdottaa niiden perusteella mahdollisia drinkkivaihtoehtoja. Käyttöliittymä koostuu näytöstä, johon syötetään baarikaapin juomat, jotka tulevat näkyviin listana ja sen jälkeen voidaan kysyä drinkkiehdotuksia.
 
-**tunnetuimmat toiminnot:** yhteen-, vähennys-, kerto- ja jakolasku
+**tunnetuimmat toiminnot:** juoman lisäys, kaapissa olevien juomien perusteella saatavat drinkkiehdotukset
 
-**ylimääräisiä toimintoja:** potenssilasku, kertoma ja n-asteinen juuri
+**ylimääräisiä toimintoja:** juoman poisto kaapista

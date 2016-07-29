@@ -27,6 +27,15 @@ public class Kirjanpito {
     public void setOsa(Ainesosa osa) {
         this.osat.add(osa);
     }
-    
+
+    public ArrayList<Drinkki> getDrinkit() {
+        return drinkit;
+    }
+
+    public ArrayList<Ainesosa> getOsat() {
+        return osat;
+    }
+
+
     
 }

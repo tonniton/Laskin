@@ -19,6 +19,17 @@ public class Ainesosa {
         this.maara = "";
     }
 
+    public Ainesosa(String nimi, String maara) {
+        this.nimi = nimi;
+        this.maara = maara;
+    }
+
+    public String getNimi() {
+        return nimi;
+    }
+    
+    
+
     public void setMaara(String maara) {
         this.maara = maara;
     }

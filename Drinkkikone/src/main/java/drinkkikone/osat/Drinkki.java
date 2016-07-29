@@ -26,6 +26,19 @@ public class Drinkki {
     public void setAine(Ainesosa aine) {
         this.aineet.add(aine);
     }
+
+    public ArrayList<Ainesosa> getAineet() {
+        return aineet;
+    }
+
+    @Override
+    public String toString() {
+        String palaute = nimi + "\n";
+        for (Ainesosa aine : aineet) {
+            palaute += aine.toString() + "\n";
+        }
+        return palaute + resepti;
+    }
     
     
     

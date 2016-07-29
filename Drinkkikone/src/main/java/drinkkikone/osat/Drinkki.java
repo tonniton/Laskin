@@ -22,6 +22,12 @@ public class Drinkki {
         this.aineet = new ArrayList();
         this.resepti = resepti;
     }
+
+    public void setAine(Ainesosa aine) {
+        this.aineet.add(aine);
+    }
+    
+    
     
     
 }

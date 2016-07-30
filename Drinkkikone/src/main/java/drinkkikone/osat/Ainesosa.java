@@ -20,6 +20,10 @@ public class Ainesosa {
         return nimi;
     }
 
+    public String getMaara() {
+        return maara;
+    }
+
     public void setMaara(String maara) {
         this.maara = maara;
     }

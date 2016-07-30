@@ -17,22 +17,27 @@ import static org.junit.Assert.*;
  * @author Viljami
  */
 public class AinesosaTest {
-    
+
+    Ainesosa osa;
+    Ainesosa osa2;
+
     public AinesosaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
+        osa = new Ainesosa("gin");
+        osa2 = new Ainesosa("tonic", "12cl");
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -40,6 +45,25 @@ public class AinesosaTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void hello() {}
+    @Test
+    public void hello() {
+    }
+
+    @Test
+    public void asettaaNimenOikein() {
+        assertEquals("gin", osa.getNimi());
+        assertEquals("tonic", osa2.getNimi());
+    }
+
+    @Test
+    public void asettaaMaaranOikein() {
+        assertEquals("", osa.getMaara());
+        assertEquals("12cl", osa2.getMaara());
+    }
+    
+    @Test
+    public void toStringOikein() {
+        assertEquals("gin ", osa.toString());
+        assertEquals("tonic 12cl", osa2.toString());
+    }
 }

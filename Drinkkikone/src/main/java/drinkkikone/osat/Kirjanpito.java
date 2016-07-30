@@ -1,9 +1,9 @@
-
 package drinkkikone.osat;
 
 import java.util.ArrayList;
 
 public class Kirjanpito {
+
     private ArrayList<Ainesosa> osat;
     private ArrayList<Drinkki> drinkit;
 
@@ -27,5 +27,5 @@ public class Kirjanpito {
     public ArrayList<Ainesosa> getOsat() {
         return osat;
     }
-  
+
 }

@@ -4,7 +4,7 @@ package drinkkikone.osat;
 import java.util.ArrayList;
 
 public class Drinkki {
-    
+
     private String nimi;
     private ArrayList<Ainesosa> aineet;
     private String resepti;
@@ -13,6 +13,14 @@ public class Drinkki {
         this.nimi = nimi;
         this.aineet = new ArrayList();
         this.resepti = resepti;
+    }
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    public String getResepti() {
+        return resepti;
     }
 
     public void setAine(Ainesosa aine) {
@@ -31,5 +39,5 @@ public class Drinkki {
         }
         return palaute + resepti;
     }
-  
+
 }

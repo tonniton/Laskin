@@ -1,4 +1,3 @@
-
 package drinkkikone;
 
 import drinkkikone.osat.Ainesosa;
@@ -7,19 +6,19 @@ import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         Kirjanpito tiedot = new Kirjanpito();
         Baarikaappi b = new Baarikaappi(tiedot);
-        
+
         tiedot.setOsa(new Ainesosa("gin"));
         tiedot.setOsa(new Ainesosa("tonic"));
-        
+
         Drinkki gt = new Drinkki("gin & tonic", "sekoita");
         gt.setAine(new Ainesosa("gin", "4cl"));
         gt.setAine(new Ainesosa("tonic", "12cl"));
         tiedot.setDrinkki(gt);
-        
+
         System.out.println(gt.toString());
         System.out.println("");
         System.out.println(tiedot.getDrinkit().get(0));

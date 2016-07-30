@@ -1,4 +1,3 @@
-
 package drinkkikone.osat;
 
 public class Ainesosa {

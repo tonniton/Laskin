@@ -16,54 +16,55 @@ import static org.junit.Assert.*;
  *
  * @author Viljami
  */
-public class AinesosaTest {
-
-    Ainesosa osa;
-    Ainesosa osa2;
-
-    public AinesosaTest() {
+public class DrinkkiTest {
+    
+    Drinkki drinkki;
+    
+    public DrinkkiTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
-        osa = new Ainesosa("gin");
-        osa2 = new Ainesosa("tonic", "12cl");
+        drinkki = new Drinkki("gt", "sekoita");
     }
-
+    
     @After
     public void tearDown() {
     }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
-//    //
-//    @Test
-//    public void hello() {
-//    }
-
+    //
+    // @Test
+    // public void hello() {}
+    
     @Test
     public void asettaaNimenOikein() {
-        assertEquals("gin", osa.getNimi());
-        assertEquals("tonic", osa2.getNimi());
+        assertEquals("gt", drinkki.getNimi());
     }
 
     @Test
-    public void asettaaMaaranOikein() {
-        assertEquals("", osa.getMaara());
-        assertEquals("12cl", osa2.getMaara());
+    public void asettaaReseptinOikein() {
+        assertEquals("sekoita", drinkki.getResepti());
     }
     
     @Test
     public void toStringOikein() {
-        assertEquals("gin ", osa.toString());
-        assertEquals("tonic 12cl", osa2.toString());
+        assertEquals("gt" + "\n" + "sekoita", drinkki.toString());
+    }
+    
+    @Test
+    public void toStringAineellaOikein() {
+        Ainesosa osa = new Ainesosa("gin", "4cl");
+        drinkki.setAine(osa);
+        assertEquals("gt" + "\n" + "gin 4cl" + "\n" + "sekoita", drinkki.toString());
     }
 }

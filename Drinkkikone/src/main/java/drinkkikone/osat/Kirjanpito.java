@@ -12,6 +12,11 @@ public class Kirjanpito {
         this.drinkit = new ArrayList();
     }
 
+    public void poistaOsa(String nimi) {
+        Ainesosa osa = new Ainesosa(nimi);
+        if (osat.contains(osa)) osat.remove(osa);
+    }
+
     public void setDrinkki(Drinkki drinkki) {
         this.drinkit.add(drinkki);
     }

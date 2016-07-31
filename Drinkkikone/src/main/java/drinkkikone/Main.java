@@ -19,10 +19,10 @@ public class Main {
             System.out.println(osa.toString());
         }
 
-//        Drinkki gt = new Drinkki("gin & tonic", "sekoita");
-//        gt.setAine(new Ainesosa("gin", "4cl"));
-//        gt.setAine(new Ainesosa("tonic", "12cl"));
-//        tiedot.setDrinkki(gt);
+        Drinkki gt = new Drinkki("gin & tonic", "sekoita");
+        gt.setAine(new Ainesosa("gin", "4cl"));
+        gt.setAine(new Ainesosa("tonic", "12cl"));
+        tiedot.setDrinkki(gt);
 
 //        System.out.println(gt.toString());
 //        System.out.println("");

@@ -33,4 +33,10 @@ public class Kirjanpito {
         return osat;
     }
 
+    public boolean onnistuukoDrinkki(Drinkki drinkki) {
+        for (Ainesosa osa : drinkki.getAineet()) {
+            if (!osat.contains(osa)) return false;
+        }
+        return true;
+    }
 }

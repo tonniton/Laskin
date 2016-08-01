@@ -31,22 +31,16 @@ public class Tiedostonlukija {
     public void lueTiedosto() {
         while (lukija.hasNextLine()) {
             String rivi = lukija.nextLine();
-            System.out.println("a " + rivi);
             String[] sanat = rivi.split(",");
             Drinkki drinkki = new Drinkki(sanat[0], sanat[1]);
             kirjanpito.setDrinkki(drinkki);
             rivi = lukija.nextLine();
-            System.out.println("b " + rivi);
             while (!rivi.isEmpty() && lukija.hasNextLine()) {
                 sanat = rivi.split(",");
                 drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
                 rivi = lukija.nextLine();
-                System.out.println("c " + rivi);
-            }
-//            System.out.println(lukija.nextLine());
-            
+            } 
         }
-
         lukija.close();
     }
     

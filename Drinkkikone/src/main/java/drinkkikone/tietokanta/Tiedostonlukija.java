@@ -30,19 +30,46 @@ public class Tiedostonlukija {
 
     public void lueTiedosto() {
         while (lukija.hasNextLine()) {
-            String rivi = lukija.nextLine();
-            String[] sanat = rivi.split(",");
-            Drinkki drinkki = new Drinkki(sanat[0], sanat[1]);
+            Drinkki drinkki = lisaaDrinkki();
+            lisaaAineet(drinkki);
             kirjanpito.setDrinkki(drinkki);
-            rivi = lukija.nextLine();
-            while (!rivi.isEmpty() && lukija.hasNextLine()) {
-                sanat = rivi.split(",");
-                drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
-                rivi = lukija.nextLine();
-            } 
         }
         lukija.close();
     }
+    
+    public Drinkki lisaaDrinkki() {
+        String rivi = lukija.nextLine();
+        String[] sanat = rivi.split(",");
+        return new Drinkki(sanat[0], sanat[1]);
+    }
+    
+    public void lisaaAineet(Drinkki drinkki) {
+        String rivi = lukija.nextLine();
+        while (!rivi.isEmpty()) {
+            String[] sanat = rivi.split(",");
+            drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
+            if (!lukija.hasNextLine()) break;
+            rivi = lukija.nextLine();
+        } 
+    }
+    
+//    public void lueTiedosto() {
+//        while (lukija.hasNextLine()) {
+//            String rivi = lukija.nextLine();
+//            String[] sanat = rivi.split(",");
+//            Drinkki drinkki = new Drinkki(sanat[0], sanat[1]);
+//            kirjanpito.setDrinkki(drinkki);
+//            rivi = lukija.nextLine();
+//            System.out.println(rivi);
+//            while (!rivi.isEmpty()) {
+//                sanat = rivi.split(",");
+//                drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
+//                if (!lukija.hasNextLine()) break;
+//                rivi = lukija.nextLine();
+//            } 
+//        }
+//        lukija.close();
+//    }
     
     
 }

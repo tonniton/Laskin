@@ -16,12 +16,13 @@ public class Main {
 //        Scanner lukija = new Scanner(tiedosto);
 //        Tiedostonlukija tl = new Tiedostonlukija(tiedosto, lukija);
 //        tl.lueTiedosto();
-
-        Tiedostonlukija tl = new Tiedostonlukija();
+        Kirjanpito tiedot = new Kirjanpito();
+        Tiedostonlukija tl = new Tiedostonlukija(tiedot);
         tl.lueTiedosto();
+        for (Drinkki drinkki : tiedot.getDrinkit()) {
+            System.out.println(drinkki);
+        }
         
-//        Kirjanpito tiedot = new Kirjanpito();
-//        Baarikaappi b = new Baarikaappi(tiedot);
 //
 //        tiedot.setOsa(new Ainesosa("gin"));
 //        tiedot.setOsa(new Ainesosa("tonic"));

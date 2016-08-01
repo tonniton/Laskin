@@ -1,1 +1,6 @@
-aa
+gin & tonic,sekoita
+gin,4cl
+tonic,12cl
+
+rommikola,aaa
+rommi,4cl

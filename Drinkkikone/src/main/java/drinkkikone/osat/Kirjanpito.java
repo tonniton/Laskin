@@ -39,4 +39,11 @@ public class Kirjanpito {
         }
         return true;
     }
+    
+    public void luoDrinkit() {
+        Drinkki gt = new Drinkki("gin & tonic", "sekoita");
+        gt.setAine(new Ainesosa("gin", "4cl"));
+        gt.setAine(new Ainesosa("tonic", "12cl"));
+        setDrinkki(gt);
+    }
 }

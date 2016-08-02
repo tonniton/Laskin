@@ -4,4 +4,4 @@ Ohjelma, jolle syötetään baarikaapissa olevat juomat ja joka tämän jälkeen
 ## dokumentaatio
 [aiheen kuvaus](dokumentaatio/Aihemäärittely.md)
 
-[tunti kirjanpito](dokumentaatio/Tuntikirjanpito.md)
+[tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)

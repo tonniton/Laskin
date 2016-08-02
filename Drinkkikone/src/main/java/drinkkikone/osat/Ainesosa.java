@@ -36,17 +36,13 @@ public class Ainesosa {
         if (olio == null) {
             return false;
         }
-
         if (getClass() != olio.getClass()) {
             return false;
         }
-
         Ainesosa verrattava = (Ainesosa) olio;
-
         if (this.nimi == null || !this.nimi.equals(verrattava.getNimi())) {
             return false;
         }
-
         return true;
     }
 }

@@ -2,4 +2,4 @@
 
 **tunnetuimmat toiminnot:** juoman lisäys, kaapissa olevien juomien perusteella saatavat drinkkiehdotukset
 
-**ylimääräisiä toimintoja:** juoman poisto kaapista
+**ylimääräisiä toimintoja:** juoman poisto kaapista, drinkkiohjeen lisääminen

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package drinkkikone.tietokanta;
 
 import drinkkikone.osat.Ainesosa;
@@ -12,10 +7,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-/**
- *
- * @author Viljami
- */
 public class Tiedostonlukija {
     private File tiedosto;
     private Scanner lukija;

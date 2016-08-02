@@ -1,17 +1,18 @@
 package drinkkikone;
 
 import drinkkikone.osat.Ainesosa;
-import drinkkikone.osat.Baarikaappi;
 import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import drinkkikone.tietokanta.Tiedostonlukija;
+import drinkkikone.tietokanta.Tiedostoonkirjoittaja;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
 //        File tiedosto = new File("tietokanta.txt");
 //        Scanner lukija = new Scanner(tiedosto);
 //        Tiedostonlukija tl = new Tiedostonlukija(tiedosto, lukija);
@@ -19,6 +20,12 @@ public class Main {
         Kirjanpito tiedot = new Kirjanpito();
         Tiedostonlukija tl = new Tiedostonlukija(tiedot);
         tl.lueTiedosto();
+        Drinkki gt = new Drinkki("rommikola", "tarjoille jäillä");
+        gt.setAine(new Ainesosa("rommi", "4cl"));
+        gt.setAine(new Ainesosa("kola", "12cl"));
+        tiedot.setDrinkki(gt);
+        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja();
+        kirjoittaja.lisaaTiedostoon(gt);
         for (Drinkki drinkki : tiedot.getDrinkit()) {
             System.out.println(drinkki);
         }

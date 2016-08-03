@@ -14,7 +14,9 @@ public class Kirjanpito {
 
     public void poistaOsa(String nimi) {
         Ainesosa osa = new Ainesosa(nimi);
-        if (osat.contains(osa)) osat.remove(osa);
+        if (osat.contains(osa)) {
+            osat.remove(osa);
+        }
     }
 
     public void setDrinkki(Drinkki drinkki) {
@@ -35,7 +37,9 @@ public class Kirjanpito {
 
     public boolean onnistuukoDrinkki(Drinkki drinkki) {
         for (Ainesosa osa : drinkki.getAineet()) {
-            if (!osat.contains(osa)) return false;
+            if (!osat.contains(osa)) {
+                return false;
+            }
         }
         return true;
     }

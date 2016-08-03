@@ -7,18 +7,29 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * soghdagerhgöih
+ * @author Viljami
+ */
 public class Tiedostonlukija {
     private File tiedosto;
     private Scanner lukija;
     private Kirjanpito kirjanpito;
 
-    public Tiedostonlukija(Kirjanpito kirjanpito) throws FileNotFoundException {
-        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe.txt";
+    /**
+     * fth
+     * @param kirjanpito
+     * @throws FileNotFoundException 
+     */
+    public Tiedostonlukija(Kirjanpito kirjanpito, String polku) throws FileNotFoundException {
         this.tiedosto = new File(polku);
         this.lukija = new Scanner(tiedosto, "UTF-8");
         this.kirjanpito = kirjanpito;
     }
 
+    /**
+     * 
+     */
     public void lueTiedosto() {
         while (lukija.hasNextLine()) {
             Drinkki drinkki = lisaaDrinkki();
@@ -27,14 +38,14 @@ public class Tiedostonlukija {
         }
         lukija.close();
     }
-    
-    public Drinkki lisaaDrinkki() {
+
+    private Drinkki lisaaDrinkki() {
         String rivi = lukija.nextLine();
         String[] sanat = rivi.split("#");
         return new Drinkki(sanat[0], sanat[1]);
     }
-    
-    public void lisaaAineet(Drinkki drinkki) {
+
+    private void lisaaAineet(Drinkki drinkki) {
         String rivi = lukija.nextLine();
         while (!rivi.isEmpty()) {
             String[] sanat = rivi.split("#");
@@ -43,7 +54,7 @@ public class Tiedostonlukija {
             rivi = lukija.nextLine();
         } 
     }
-    
+
 //    public void lueTiedosto() {
 //        while (lukija.hasNextLine()) {
 //            String rivi = lukija.nextLine();

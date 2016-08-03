@@ -39,4 +39,20 @@ public class Drinkki {
         return palaute + resepti;
     }
 
+    @Override
+    public boolean equals(Object olio) {
+        if (olio == null) {
+            return false;
+        }
+        if (getClass() != olio.getClass()) {
+            return false;
+        }
+        Drinkki verrattava = (Drinkki) olio;
+        if (this.nimi == null || !this.nimi.equals(verrattava.getNimi())) {
+            return false;
+        }
+        return true;
+    }
+
+    
 }

@@ -66,4 +66,10 @@ public class AinesosaTest {
         assertEquals("gin ", osa.toString());
         assertEquals("tonic 12cl", osa2.toString());
     }
+    
+    @Test
+    public void equalsOikein() {
+        Ainesosa osa2 = new Ainesosa("gin", "4cl");
+        assertEquals(osa.equals(osa2), true);
+    }
 }

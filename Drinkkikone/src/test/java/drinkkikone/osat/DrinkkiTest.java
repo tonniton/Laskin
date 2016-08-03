@@ -67,4 +67,10 @@ public class DrinkkiTest {
         drinkki.setAine(osa);
         assertEquals("gt" + "\n" + "gin 4cl" + "\n" + "sekoita", drinkki.toString());
     }
+    
+    @Test
+    public void equalsOikein() {
+        Drinkki drinkki2 = new Drinkki("gt", "sekoita");
+        assertEquals(drinkki.equals(drinkki2), true);
+    }
 }

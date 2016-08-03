@@ -18,13 +18,14 @@ public class Main {
 //        Tiedostonlukija tl = new Tiedostonlukija(tiedosto, lukija);
 //        tl.lueTiedosto();
         Kirjanpito tiedot = new Kirjanpito();
-        Tiedostonlukija tl = new Tiedostonlukija(tiedot);
+        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe.txt";
+        Tiedostonlukija tl = new Tiedostonlukija(tiedot, polku);
         tl.lueTiedosto();
         Drinkki gt = new Drinkki("rommikola", "tarjoille jäillä");
         gt.setAine(new Ainesosa("rommi", "4cl"));
         gt.setAine(new Ainesosa("kola", "12cl"));
         tiedot.setDrinkki(gt);
-        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja();
+        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(true);
         kirjoittaja.lisaaTiedostoon(gt);
         for (Drinkki drinkki : tiedot.getDrinkit()) {
             System.out.println(drinkki);

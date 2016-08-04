@@ -5,6 +5,11 @@
  */
 package drinkkikone.tietokanta;
 
+import drinkkikone.osat.Ainesosa;
+import drinkkikone.osat.Drinkki;
+import drinkkikone.osat.Kirjanpito;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,6 +23,11 @@ import static org.junit.Assert.*;
  */
 public class TiedostoonkirjoittajaTest {
     
+    Tiedostonlukija lukija;
+    Kirjanpito kirjanpito;
+    String polku;
+    Tiedostoonkirjoittaja kirjoittaja;
+    
     public TiedostoonkirjoittajaTest() {
     }
     
@@ -30,7 +40,11 @@ public class TiedostoonkirjoittajaTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws FileNotFoundException, IOException {
+        kirjanpito = new Kirjanpito();
+        polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe2.txt";
+        lukija = new Tiedostonlukija(kirjanpito, polku);
+        kirjoittaja = new Tiedostoonkirjoittaja(false);
     }
     
     @After
@@ -42,4 +56,19 @@ public class TiedostoonkirjoittajaTest {
     //
     // @Test
     // public void hello() {}
+     @Test
+     public void toimiikoKirjoitus() throws IOException {
+        Drinkki gt = new Drinkki("gin & tonic", "tarjoille jäillä");
+        gt.setAine(new Ainesosa("gin", "4cl"));
+        gt.setAine(new Ainesosa("tonic", "12cl"));
+        kirjoittaja.lisaaTiedostoon(gt);
+        lukija.lueTiedosto();
+//        kirjanpito.getDrinkit().get(0).getNimi();
+//        assertEquals(kirjanpito.getDrinkit().get(0).getNimi(), gt.getNimi());
+//        assertEquals(kirjanpito.getDrinkit().get(0).getResepti(), gt.getResepti());
+//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getNimi(), gt.getAineet().get(0).getNimi());
+//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getMaara(), gt.getAineet().get(0).getMaara());
+//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getNimi(), gt.getAineet().get(1).getNimi());
+//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getMaara(), gt.getAineet().get(1).getMaara());
+     }
 }

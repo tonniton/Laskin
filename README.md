@@ -6,4 +6,4 @@ Ohjelma, jolle syötetään baarikaapissa olevat juomat ja joka tämän jälkeen
 
 [tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
 
-![Luokkakaavio](/dokumentaatio/luokkakaavio/WP_20160803_001.jpg)
+![Luokkakaavio](/dokumentaatio/luokkakaavio/WP_20160803_001.jpg "Luokkakaavio")

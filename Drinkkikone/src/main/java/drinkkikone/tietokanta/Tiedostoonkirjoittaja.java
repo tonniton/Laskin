@@ -10,8 +10,7 @@ import java.io.OutputStreamWriter;
 public class Tiedostoonkirjoittaja {
     OutputStreamWriter kirjoittaja;
 
-    public Tiedostoonkirjoittaja(boolean sailyykoVanha) throws IOException {
-        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
+    public Tiedostoonkirjoittaja(boolean sailyykoVanha, String polku) throws IOException {
         kirjoittaja = new OutputStreamWriter(new FileOutputStream(polku, sailyykoVanha),"UTF-8");
     }
 

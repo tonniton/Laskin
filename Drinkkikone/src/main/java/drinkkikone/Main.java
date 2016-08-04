@@ -25,7 +25,7 @@ public class Main {
         gt.setAine(new Ainesosa("rommi", "4cl"));
         gt.setAine(new Ainesosa("kola", "12cl"));
         tiedot.setDrinkki(gt);
-        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(true);
+        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(true, polku);
         kirjoittaja.lisaaTiedostoon(gt);
         for (Drinkki drinkki : tiedot.getDrinkit()) {
             System.out.println(drinkki);

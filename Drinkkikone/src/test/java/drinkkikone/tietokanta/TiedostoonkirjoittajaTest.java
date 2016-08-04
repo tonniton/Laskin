@@ -44,7 +44,7 @@ public class TiedostoonkirjoittajaTest {
         kirjanpito = new Kirjanpito();
         polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe2.txt";
         lukija = new Tiedostonlukija(kirjanpito, polku);
-        kirjoittaja = new Tiedostoonkirjoittaja(false);
+        kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
     }
     
     @After
@@ -63,12 +63,12 @@ public class TiedostoonkirjoittajaTest {
         gt.setAine(new Ainesosa("tonic", "12cl"));
         kirjoittaja.lisaaTiedostoon(gt);
         lukija.lueTiedosto();
-//        kirjanpito.getDrinkit().get(0).getNimi();
-//        assertEquals(kirjanpito.getDrinkit().get(0).getNimi(), gt.getNimi());
-//        assertEquals(kirjanpito.getDrinkit().get(0).getResepti(), gt.getResepti());
-//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getNimi(), gt.getAineet().get(0).getNimi());
-//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getMaara(), gt.getAineet().get(0).getMaara());
-//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getNimi(), gt.getAineet().get(1).getNimi());
-//        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getMaara(), gt.getAineet().get(1).getMaara());
+        kirjanpito.getDrinkit().get(0).getNimi();
+        assertEquals(kirjanpito.getDrinkit().get(0).getNimi(), gt.getNimi());
+        assertEquals(kirjanpito.getDrinkit().get(0).getResepti(), gt.getResepti());
+        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getNimi(), gt.getAineet().get(0).getNimi());
+        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getMaara(), gt.getAineet().get(0).getMaara());
+        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getNimi(), gt.getAineet().get(1).getNimi());
+        assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getMaara(), gt.getAineet().get(1).getMaara());
      }
 }

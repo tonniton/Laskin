@@ -6,4 +6,4 @@ Ohjelma, jolle syötetään baarikaapissa olevat juomat ja joka tämän jälkeen
 
 [tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
 
-![Alt text](C:\Users\Viljami\Documents\GitHub\repo\dokumentaatio\luokkakaavio/img.jpg)
+![Luokkakaavio](C:/Users/Viljami/Documents/GitHub/repo/dokumentaatio/luokkakaavio/img.jpg)

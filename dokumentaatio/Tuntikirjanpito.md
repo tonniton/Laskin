@@ -7,4 +7,7 @@ Päivä | Tunnit | Kuvaus
 29.07.2016 | 5h | aiheenvaihto ja koodin perusrakenteen ohjelmointia
 30.07.2016 | 3h | testien tekoa
 31.07.2016 | 2h | koodin parantelua
+01.08.2016 | 4h | dokumentaatiota
+02.08.2016 | 3h | lisää testejä
+03.08.2016 | 3h | tiedostosta lukeminen ja siihen kirjoittaminen
 ... | ... | ...

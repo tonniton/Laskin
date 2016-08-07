@@ -14,6 +14,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -39,23 +40,43 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new BorderLayout());
-
         container.add(new JButton("Pohjoinen (North)"), BorderLayout.NORTH);
-//        container.add(new JButton("Itä (East)"), BorderLayout.EAST);
-//        container.add(new JTextField("Länsi (West)"), BorderLayout.WEST);
-//        container.add(new JButton("Keski (Center)"), BorderLayout.CENTER);
-        JPanel menu = new JPanel(new GridLayout(1, 2));
-        menu.add(new JButton("Suorita"));
-        menu.add(new JButton("Testaa"));
-        
-        container.add(menu, BorderLayout.SOUTH);
-        
-        JPanel panel = new JPanel(new GridLayout(1, 2));
-        panel.add(new JLabel("Ainesosat"));
-        panel.add(new JTextField("Drinkit"));
 
-        container.add(panel);
+        JTextField vasen = new JTextField("0");
+        vasen.setEnabled(false);
+        JTextField oikea = new JTextField("");
+        String	listData[] =
+		{
+			"Item 1",
+			"Item 2",
+			"Item 3",
+			"Item 4"
+		};
+        JList listbox = new JList(listData);
+//        JPanel valikko = luovalikko(vasen, oikea);
+//        container.add(valikko, BorderLayout.SOUTH);
+        
+        JPanel menu = new JPanel(new GridLayout(1, 3));
+        menu.add(vasen);
+        menu.add(oikea);
+        menu.add(listbox);
+        container.add(menu);
+    }
+    
+    private JPanel luovalikko(JTextField vasen, JTextField oikea) {
+        JPanel panel = new JPanel(new GridLayout(1, 3));
+        JButton plus = new JButton("+");
+        JButton miinus = new JButton("-");
+        JButton nollaa = new JButton("Z");
+        Kuuntelija kuuntelija = new Kuuntelija(oikea, vasen, plus, miinus, nollaa);
+        plus.addActionListener(kuuntelija);
+        miinus.addActionListener(kuuntelija);
+        nollaa.addActionListener(kuuntelija);
+        panel.add(plus);
+        panel.add(miinus);
+        nollaa.setEnabled(false);
+        panel.add(nollaa);
+        return panel;
     }
 
     public JFrame getFrame() {

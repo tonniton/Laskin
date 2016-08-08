@@ -63,10 +63,10 @@ public class Kayttoliittyma implements Runnable {
         JButton nollaa = new JButton("Z");
         Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, plus, miinus, nollaa, listData);
         plus.addActionListener(kuuntelija);
-//        miinus.addActionListener(kuuntelija);
+        miinus.addActionListener(kuuntelija);
 //        nollaa.addActionListener(kuuntelija);
         panel.add(plus);
-//        panel.add(miinus);
+        panel.add(miinus);
 //        nollaa.setEnabled(false);
 //        panel.add(nollaa);
         return panel;

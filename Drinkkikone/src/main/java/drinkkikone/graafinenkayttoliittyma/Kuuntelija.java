@@ -13,6 +13,7 @@ import javax.swing.JList;
 import javax.swing.JTextField;
 
 public class Kuuntelija implements ActionListener {
+
     private JList osat;
     private JTextField lisaa;
     private JButton plus;
@@ -26,9 +27,9 @@ public class Kuuntelija implements ActionListener {
         this.plus = lisaa;
         this.miinus = miinus;
         this.nollaa = nollaa;
-        this.listData  = listData;
+        this.listData = listData;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         try {
@@ -38,9 +39,20 @@ public class Kuuntelija implements ActionListener {
                 listData.addElement(lisattava);
                 osat.setListData(listData);
             }
+            if (ae.getSource() == miinus) {
+                int selection = osat.getSelectedIndex();
+                if (selection >= 0) {
+                    listData.removeElementAt(selection);
+                    osat.setListData(listData);
+//                    if (selection >= listData.size()) {
+//                        selection = listData.size() - 1;
+//                    }
+                    osat.setSelectedIndex(selection);
+                }
+            }
         } catch (Exception e) {
 
         }
-        
+
     }
 }

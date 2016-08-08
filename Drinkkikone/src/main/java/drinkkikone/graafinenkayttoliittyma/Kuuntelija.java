@@ -40,14 +40,14 @@ public class Kuuntelija implements ActionListener {
                 osat.setListData(listData);
             }
             if (ae.getSource() == miinus) {
-                int selection = osat.getSelectedIndex();
-                if (selection >= 0) {
-                    listData.removeElementAt(selection);
+                int valittu = osat.getSelectedIndex();
+                if (valittu >= 0) {
+                    listData.removeElementAt(valittu);
                     osat.setListData(listData);
-//                    if (selection >= listData.size()) {
-//                        selection = listData.size() - 1;
-//                    }
-                    osat.setSelectedIndex(selection);
+                    if (valittu >= listData.size()) {
+                        valittu = listData.size() - 1;
+                    }
+                    osat.setSelectedIndex(valittu);
                 }
             }
         } catch (Exception e) {

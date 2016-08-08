@@ -15,44 +15,48 @@ import javax.swing.JTextField;
 public class Kuuntelija implements ActionListener {
 
     private JList osat;
-    private JTextField lisaa;
-    private JButton plus;
-    private JButton miinus;
+    private JTextField syote;
+    private JButton lisaa;
+    private JButton poista;
     private JButton nollaa;
     private Vector listData;
 
-    public Kuuntelija(JList kentta1, JTextField kentta2, JButton lisaa, JButton miinus, JButton nollaa, Vector listData) {
+    public Kuuntelija(JList kentta1, JTextField kentta2, JButton lisaa, JButton poista, JButton nollaa, Vector listData) {
         this.osat = kentta1;
-        this.lisaa = kentta2;
-        this.plus = lisaa;
-        this.miinus = miinus;
+        this.syote = kentta2;
+        this.lisaa = lisaa;
+        this.poista = poista;
         this.nollaa = nollaa;
         this.listData = listData;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        try {
-            String lisattava = lisaa.getText();
-            if (ae.getSource() == plus) {
-                lisaa.setText("");
-                listData.addElement(lisattava);
-                osat.setListData(listData);
-            }
-            if (ae.getSource() == miinus) {
-                int valittu = osat.getSelectedIndex();
-                if (valittu >= 0) {
-                    listData.removeElementAt(valittu);
-                    osat.setListData(listData);
-                    if (valittu >= listData.size()) {
-                        valittu = listData.size() - 1;
-                    }
-                    osat.setSelectedIndex(valittu);
-                }
-            }
-        } catch (Exception e) {
-
+        String lisattava = syote.getText();
+        if (ae.getSource() == lisaa) {
+            lisaaOsa(lisattava);
+        } else if (ae.getSource() == poista) {
+            poistaOsa();
         }
+    }
 
+    public void lisaaOsa(String lisattava) {
+        if (!lisattava.isEmpty()) {
+            syote.setText("");
+            listData.addElement(lisattava);
+            osat.setListData(listData);
+        }
+    }
+
+    public void poistaOsa() {
+        int valittu = osat.getSelectedIndex();
+        if (valittu >= 0) {
+            listData.removeElementAt(valittu);
+            osat.setListData(listData);
+            if (valittu >= listData.size()) {
+                valittu = listData.size() - 1;
+            }
+            osat.setSelectedIndex(valittu);
+        }
     }
 }

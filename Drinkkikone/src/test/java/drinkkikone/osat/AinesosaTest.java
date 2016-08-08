@@ -71,5 +71,7 @@ public class AinesosaTest {
     public void equalsOikein() {
         Ainesosa osa2 = new Ainesosa("gin", "4cl");
         assertEquals(osa.equals(osa2), true);
+        assertEquals(osa.equals(null), false);
+        assertEquals(osa.equals(new String()), false);
     }
 }

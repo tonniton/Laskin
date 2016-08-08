@@ -72,5 +72,9 @@ public class DrinkkiTest {
     public void equalsOikein() {
         Drinkki drinkki2 = new Drinkki("gt", "sekoita");
         assertEquals(drinkki.equals(drinkki2), true);
+        assertEquals(drinkki.equals(null), false);
+        assertEquals(drinkki.equals(new String()), false);
+        Drinkki drinkki3 = new Drinkki("aa", "sekoita");
+        assertEquals(drinkki.equals(drinkki3), false);
     }
 }

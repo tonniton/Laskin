@@ -63,7 +63,6 @@ public class TiedostoonkirjoittajaTest {
         gt.setAine(new Ainesosa("tonic", "12cl"));
         kirjoittaja.lisaaTiedostoon(gt);
         lukija.lueTiedosto();
-        kirjanpito.getDrinkit().get(0).getNimi();
         assertEquals(kirjanpito.getDrinkit().get(0).getNimi(), gt.getNimi());
         assertEquals(kirjanpito.getDrinkit().get(0).getResepti(), gt.getResepti());
         assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(0).getNimi(), gt.getAineet().get(0).getNimi());

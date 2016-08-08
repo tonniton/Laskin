@@ -9,17 +9,20 @@ import java.util.Scanner;
 
 /**
  * soghdagerhgöih
+ *
  * @author Viljami
  */
 public class Tiedostonlukija {
+
     private File tiedosto;
     private Scanner lukija;
     private Kirjanpito kirjanpito;
 
     /**
      * fth
+     *
      * @param kirjanpito
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public Tiedostonlukija(Kirjanpito kirjanpito, String polku) throws FileNotFoundException {
         this.tiedosto = new File(polku);
@@ -28,7 +31,7 @@ public class Tiedostonlukija {
     }
 
     /**
-     * 
+     *
      */
     public void lueTiedosto() {
         while (lukija.hasNextLine()) {
@@ -50,28 +53,10 @@ public class Tiedostonlukija {
         while (!rivi.isEmpty()) {
             String[] sanat = rivi.split("#");
             drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
-            if (!lukija.hasNextLine()) break;
+            if (!lukija.hasNextLine()) {
+                break;
+            }
             rivi = lukija.nextLine();
-        } 
+        }
     }
-
-//    public void lueTiedosto() {
-//        while (lukija.hasNextLine()) {
-//            String rivi = lukija.nextLine();
-//            String[] sanat = rivi.split("#");
-//            Drinkki drinkki = new Drinkki(sanat[0], sanat[1]);
-//            kirjanpito.setDrinkki(drinkki);
-//            rivi = lukija.nextLine();
-//            System.out.println(rivi);
-//            while (!rivi.isEmpty()) {
-//                sanat = rivi.split("#");
-//                drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
-//                if (!lukija.hasNextLine()) break;
-//                rivi = lukija.nextLine();
-//            } 
-//        }
-//        lukija.close();
-//    }
-    
-    
 }

@@ -54,5 +54,4 @@ public class Drinkki {
         return true;
     }
 
-    
 }

@@ -19,15 +19,15 @@ public class Kuuntelija implements ActionListener {
     private JButton lisaa;
     private JButton poista;
     private JButton nollaa;
-    private Vector listData;
+    private Vector osaTiedot;
 
-    public Kuuntelija(JList kentta1, JTextField kentta2, JButton lisaa, JButton poista, JButton nollaa, Vector listData) {
+    public Kuuntelija(JList kentta1, JTextField kentta2, JButton lisaa, JButton poista, JButton nollaa, Vector osaTiedot) {
         this.osat = kentta1;
         this.syote = kentta2;
         this.lisaa = lisaa;
         this.poista = poista;
         this.nollaa = nollaa;
-        this.listData = listData;
+        this.osaTiedot = osaTiedot;
     }
 
     @Override
@@ -43,18 +43,18 @@ public class Kuuntelija implements ActionListener {
     public void lisaaOsa(String lisattava) {
         if (!lisattava.isEmpty()) {
             syote.setText("");
-            listData.addElement(lisattava);
-            osat.setListData(listData);
+            osaTiedot.addElement(lisattava);
+            osat.setListData(osaTiedot);
         }
     }
 
     public void poistaOsa() {
         int valittu = osat.getSelectedIndex();
         if (valittu >= 0) {
-            listData.removeElementAt(valittu);
-            osat.setListData(listData);
-            if (valittu >= listData.size()) {
-                valittu = listData.size() - 1;
+            osaTiedot.removeElementAt(valittu);
+            osat.setListData(osaTiedot);
+            if (valittu >= osaTiedot.size()) {
+                valittu = osaTiedot.size() - 1;
             }
             osat.setSelectedIndex(valittu);
         }

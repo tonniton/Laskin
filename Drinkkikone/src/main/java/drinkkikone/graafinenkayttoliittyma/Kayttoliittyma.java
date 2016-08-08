@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.ListModel;
 import javax.swing.WindowConstants;
 
 public class Kayttoliittyma implements Runnable {
@@ -41,23 +43,23 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        
+
         Vector osaTiedot = new Vector();
         JList osat = new JList(osaTiedot);
         Vector drinkkiTiedot = new Vector();
         JList drinkit = new JList(drinkkiTiedot);
         JTextField syote = new JTextField();
-        
+
         JPanel menu = new JPanel(new GridLayout(1, 2));
         menu.add(osat);
         menu.add(drinkit);
         container.add(menu);
-        
+
         JPanel valikko = luovalikko(osat, syote, osaTiedot);
         container.add(valikko, BorderLayout.SOUTH);
         container.add(syote, BorderLayout.NORTH);
     }
-    
+
     private JPanel luovalikko(JList vasen, JTextField syote, Vector osaTiedot) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JButton lisaa = new JButton("lisaa");

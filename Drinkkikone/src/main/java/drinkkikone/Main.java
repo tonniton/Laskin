@@ -34,24 +34,5 @@ public class Main {
 ////        for (Drinkki drinkki : tiedot.getDrinkit()) {
 ////            System.out.println(drinkki);
 ////        }
-        
-//
-//        tiedot.setOsa(new Ainesosa("gin"));
-//        tiedot.setOsa(new Ainesosa("tonic"));
-//        
-//        tiedot.poistaOsa("gin");
-//        for (Ainesosa osa : tiedot.getOsat()) {
-//            System.out.println(osa.toString());
-//        }
-//
-//        Drinkki gt = new Drinkki("gin & tonic", "sekoita");
-//        gt.setAine(new Ainesosa("gin", "4cl"));
-//        gt.setAine(new Ainesosa("tonic", "12cl"));
-//        tiedot.setDrinkki(gt);
-
-//        System.out.println(gt.toString());
-//        System.out.println("");
-//        System.out.println(tiedot.getDrinkit().get(0));
-//        System.out.println("");
     }
 }

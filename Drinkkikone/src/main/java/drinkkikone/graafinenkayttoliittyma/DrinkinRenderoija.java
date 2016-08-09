@@ -9,24 +9,29 @@ import drinkkikone.osat.Drinkki;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  *
  * @author Viljami
  */
 public class DrinkinRenderoija extends DefaultListCellRenderer {
-    public Component getListCellRendererComponent(JList<?> list,
-                                 Object value,
+    public Component getListCellRendererComponent(JList<?> lista,
+                                 Object arvo,
                                  int index,
-                                 boolean isSelected,
-                                 boolean cellHasFocus) {
-        super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-        if (value instanceof Drinkki) {
-            Drinkki ingredient = (Drinkki)value;
-            setText(ingredient.getNimi());
-            setToolTipText(ingredient.getResepti());
+                                 boolean valittu,
+                                 boolean cellHasFocus) 
+    {
+        super.getListCellRendererComponent(lista, arvo, index, valittu, cellHasFocus);
+//        if (value instanceof Drinkki) {
+            Drinkki drinkki = (Drinkki)arvo;
+            setText(drinkki.getNimi());
+//            setToolTipText(drinkki.getResepti());
             // setIcon(ingredient.getIcon());
-        }
+//        }
+//            if (valittu) {
+//                setText(drinkki.toString());
+//            }
         return this;
     }
 }

@@ -32,9 +32,9 @@ public class Drinkki {
 
     @Override
     public String toString() {
-        String palaute = nimi + "\n";
+        String palaute = "<html>" + nimi + "<br/>";
         for (Ainesosa aine : aineet) {
-            palaute += aine.toString() + "\n";
+            palaute += aine.toString() + "<br/>";
         }
         return palaute + resepti;
     }

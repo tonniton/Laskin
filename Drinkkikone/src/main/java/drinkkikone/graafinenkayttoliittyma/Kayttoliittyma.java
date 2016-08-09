@@ -9,6 +9,7 @@ import drinkkikone.osat.Ainesosa;
 import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -23,7 +24,10 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class Kayttoliittyma implements Runnable {
 
@@ -52,10 +56,19 @@ public class Kayttoliittyma implements Runnable {
         JList osat = new JList(kirjanpito.getOsat());
         JList drinkit = new JList(kirjanpito.getDrinkit());
         JTextField syote = new JTextField();
+        drinkit.setCellRenderer(new DrinkinRenderoija());
+        JLabel tiedot = new JLabel("", SwingConstants.CENTER);
+        
+        drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
+            JList list = (JList) ev.getSource();
+            Object selectionValues[] = list.getSelectedValues();
+            tiedot.setText(selectionValues[0].toString());
+        });
 
-        JPanel menu = new JPanel(new GridLayout(1, 2));
+        JPanel menu = new JPanel(new GridLayout(1, 3));
         menu.add(osat);
         menu.add(drinkit);
+        menu.add(tiedot);
         container.add(menu);
 
         JPanel valikko = luovalikko(osat, syote, kirjanpito.getOsat());

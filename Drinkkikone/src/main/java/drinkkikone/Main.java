@@ -15,6 +15,10 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        Kirjanpito kirjanpito = Kirjanpito.getInstance();
+        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe.txt";
+        Tiedostonlukija tl = new Tiedostonlukija(kirjanpito, polku);
+        tl.lueTiedosto();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
 //        File tiedosto = new File("tietokanta.txt");

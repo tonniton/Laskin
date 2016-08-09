@@ -5,6 +5,9 @@
  */
 package drinkkikone.graafinenkayttoliittyma;
 
+import drinkkikone.osat.Ainesosa;
+import drinkkikone.osat.Drinkki;
+import drinkkikone.osat.Kirjanpito;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -44,10 +47,10 @@ public class Kayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
 
-        Vector osaTiedot = new Vector();
-        JList osat = new JList(osaTiedot);
-        Vector drinkkiTiedot = new Vector();
-        JList drinkit = new JList(drinkkiTiedot);
+        Kirjanpito kirjanpito = Kirjanpito.getInstance();
+
+        JList osat = new JList(kirjanpito.getOsat());
+        JList drinkit = new JList(kirjanpito.getDrinkit());
         JTextField syote = new JTextField();
 
         JPanel menu = new JPanel(new GridLayout(1, 2));
@@ -55,7 +58,7 @@ public class Kayttoliittyma implements Runnable {
         menu.add(drinkit);
         container.add(menu);
 
-        JPanel valikko = luovalikko(osat, syote, osaTiedot);
+        JPanel valikko = luovalikko(osat, syote, kirjanpito.getOsat());
         container.add(valikko, BorderLayout.SOUTH);
         container.add(syote, BorderLayout.NORTH);
     }

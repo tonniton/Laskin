@@ -60,9 +60,13 @@ public class Kayttoliittyma implements Runnable {
         JLabel tiedot = new JLabel("", SwingConstants.CENTER);
         
         drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
-            JList list = (JList) ev.getSource();
-            Object selectionValues[] = list.getSelectedValues();
-            tiedot.setText(selectionValues[0].toString());
+            if(drinkit.getLastVisibleIndex() != -1) {
+                JList list = (JList) ev.getSource();
+                Object selectionValues[] = list.getSelectedValues();
+                tiedot.setText(selectionValues[0].toString());
+            } else {
+                tiedot.setText("");
+            }
         });
 
         JPanel menu = new JPanel(new GridLayout(1, 3));

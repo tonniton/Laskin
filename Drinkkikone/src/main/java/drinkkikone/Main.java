@@ -21,6 +21,9 @@ public class Main {
         tl.lueTiedosto();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
+        
+        
+        
 //        File tiedosto = new File("tietokanta.txt");
 //        Scanner lukija = new Scanner(tiedosto);
 //        Tiedostonlukija tl = new Tiedostonlukija(tiedosto, lukija);

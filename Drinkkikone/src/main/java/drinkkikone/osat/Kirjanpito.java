@@ -2,15 +2,18 @@ package drinkkikone.osat;
 
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.ListModel;
 
 public class Kirjanpito {
     private static Kirjanpito kirjanpito;
     private Vector<Ainesosa> osat;
     private Vector<Drinkki> drinkit;
+    private Vector<Drinkki> mahdolliset;
 
     public Kirjanpito() {
         this.osat = new Vector();
         this.drinkit = new Vector();
+        this.mahdolliset = new Vector();
     }
 
     public void poistaOsa(String nimi) {
@@ -36,6 +39,10 @@ public class Kirjanpito {
         return osat;
     }
 
+    public Vector<Drinkki> getMahdolliset() {
+        return mahdolliset;
+    }
+
     public boolean onnistuukoDrinkki(Drinkki drinkki) {
         for (Ainesosa osa : drinkki.getAineet()) {
             if (!osat.contains(osa)) {
@@ -45,10 +52,20 @@ public class Kirjanpito {
         return true;
     }
     
+    public void paivitaMahdolliset() {
+        mahdolliset.clear();
+        for (Drinkki drinkki : drinkit) {
+            if (onnistuukoDrinkki(drinkki)) {
+                mahdolliset.add(drinkki);
+            }
+        }
+    }
+    
     public static Kirjanpito getInstance() {
       if(kirjanpito == null) {
          kirjanpito = new Kirjanpito();
       }
       return kirjanpito;
    }
+
 }

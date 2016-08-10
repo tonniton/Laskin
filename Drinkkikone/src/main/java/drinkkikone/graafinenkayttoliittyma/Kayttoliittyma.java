@@ -54,7 +54,7 @@ public class Kayttoliittyma implements Runnable {
         Kirjanpito kirjanpito = Kirjanpito.getInstance();
 
         JList osat = new JList(kirjanpito.getOsat());
-        JList drinkit = new JList(kirjanpito.getDrinkit());
+        JList drinkit = new JList(kirjanpito.getMahdolliset());
         JTextField syote = new JTextField();
         drinkit.setCellRenderer(new DrinkinRenderoija());
         JLabel tiedot = new JLabel("", SwingConstants.CENTER);
@@ -71,17 +71,17 @@ public class Kayttoliittyma implements Runnable {
         menu.add(tiedot);
         container.add(menu);
 
-        JPanel valikko = luovalikko(osat, syote, kirjanpito.getOsat());
+        JPanel valikko = luovalikko(osat, drinkit, syote);
         container.add(valikko, BorderLayout.SOUTH);
         container.add(syote, BorderLayout.NORTH);
     }
 
-    private JPanel luovalikko(JList vasen, JTextField syote, Vector osaTiedot) {
+    private JPanel luovalikko(JList vasen, JList oikea, JTextField syote) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JButton lisaa = new JButton("lisaa");
         JButton poista = new JButton("poista");
         JButton nollaa = new JButton("Z");
-        Kuuntelija kuuntelija = new Kuuntelija(vasen, syote, lisaa, poista, nollaa, osaTiedot);
+        Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, syote, lisaa, poista, nollaa);
         lisaa.addActionListener(kuuntelija);
         poista.addActionListener(kuuntelija);
 //        nollaa.addActionListener(kuuntelija);

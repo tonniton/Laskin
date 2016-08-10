@@ -5,6 +5,8 @@
  */
 package drinkkikone.graafinenkayttoliittyma;
 
+import drinkkikone.osat.Ainesosa;
+import drinkkikone.osat.Kirjanpito;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -15,19 +17,25 @@ import javax.swing.JTextField;
 public class Kuuntelija implements ActionListener {
 
     private JList osat;
+    private JList drinkit;
     private JTextField syote;
     private JButton lisaa;
     private JButton poista;
     private JButton nollaa;
+    private Kirjanpito kirjanpito;
     private Vector osaTiedot;
+    private Vector mahdolliset;
 
-    public Kuuntelija(JList kentta1, JTextField kentta2, JButton lisaa, JButton poista, JButton nollaa, Vector osaTiedot) {
+    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton nollaa) {
         this.osat = kentta1;
-        this.syote = kentta2;
+        this.drinkit = kentta2;
+        this.syote = kentta3;
         this.lisaa = lisaa;
         this.poista = poista;
         this.nollaa = nollaa;
-        this.osaTiedot = osaTiedot;
+        this.kirjanpito = kirjanpito.getInstance();
+        this.osaTiedot = kirjanpito.getOsat();
+        this.mahdolliset = kirjanpito.getMahdolliset();
     }
 
     @Override
@@ -43,8 +51,11 @@ public class Kuuntelija implements ActionListener {
     public void lisaaOsa(String lisattava) {
         if (!lisattava.isEmpty()) {
             syote.setText("");
-            osaTiedot.addElement(lisattava);
+//            kirjanpito.setOsa(new Ainesosa(lisattava));
+            osaTiedot.addElement(new Ainesosa(lisattava));
             osat.setListData(osaTiedot);
+            kirjanpito.paivitaMahdolliset();
+            drinkit.setListData(mahdolliset);
         }
     }
 
@@ -58,5 +69,7 @@ public class Kuuntelija implements ActionListener {
             }
             osat.setSelectedIndex(valittu);
         }
+        kirjanpito.paivitaMahdolliset();
+        drinkit.setListData(mahdolliset);
     }
 }

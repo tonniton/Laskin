@@ -6,3 +6,7 @@ Ohjelma, jolle syötetään baarikaapissa olevat juomat ja joka tämän jälkeen
 
 [tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
 
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/tonniton/Laskin/blob/master/dokumentaatio/pit-raportti/201608041833/index.html)
+
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/tonniton/Laskin/blob/master/dokumentaatio/checkstyle/checkstyle.html)
+

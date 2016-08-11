@@ -15,4 +15,7 @@ Päivä | Tunnit | Kuvaus
 06.08.2016 | 1h | graafinen käyttöliittymä
 07.08.2016 | 2h | graafinen käyttöliittymä
 08.08.2016 | 3h | graafinen käyttöliittymä ja dokumentaation päivittelyä
+09.08.2016 | 5h | graafinen käyttöliittymä
+10.08.2016 | 3h | graafinen käyttöliittymä
+11.08.2016 | 2h | graafinen käyttöliittymä ja dokumentaation päivittelyä
 ... | ... | ...

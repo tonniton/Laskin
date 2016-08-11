@@ -4,4 +4,4 @@
 
 **ylimääräisiä toimintoja:** juoman poisto kaapista, drinkkiohjeen lisääminen
 
-![Luokkakaavio](/dokumentaatio/luokkakaavio/WP_20160803_001.jpg "Luokkakaavio")
+![Luokkakaavio](/dokumentaatio/luokkakaavio/WP_20160811_002.jpg "Luokkakaavio")

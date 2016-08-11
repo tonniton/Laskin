@@ -59,21 +59,8 @@ public class Kayttoliittyma implements Runnable {
         drinkit.setCellRenderer(new DrinkinRenderoija());
         JLabel tiedot = new JLabel("", SwingConstants.CENTER);
         
-        drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
-            if(drinkit.getLastVisibleIndex() != -1) {
-                JList list = (JList) ev.getSource();
-                Object selectionValues[] = list.getSelectedValues();
-                tiedot.setText(selectionValues[0].toString());
-            } else {
-                tiedot.setText("");
-            }
-        });
-
-        JPanel menu = new JPanel(new GridLayout(1, 3));
-        menu.add(osat);
-        menu.add(drinkit);
-        menu.add(tiedot);
-        container.add(menu);
+        luoDrinkkiTiedonpaivittaja(drinkit, tiedot);
+        luoTekstiAlue(osat, drinkit, tiedot, container);
 
         JPanel valikko = luovalikko(osat, drinkit, syote);
         container.add(valikko, BorderLayout.SOUTH);
@@ -94,6 +81,26 @@ public class Kayttoliittyma implements Runnable {
 //        nollaa.setEnabled(false);
 //        panel.add(nollaa);
         return panel;
+    }
+    
+    private void luoTekstiAlue(JList osat, JList drinkit, JLabel tiedot, Container container) {
+        JPanel menu = new JPanel(new GridLayout(1, 3));
+        menu.add(osat);
+        menu.add(drinkit);
+        menu.add(tiedot);
+        container.add(menu);
+    }
+    
+    private void luoDrinkkiTiedonpaivittaja(JList drinkit, JLabel tiedot) {
+        drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
+            if(drinkit.getLastVisibleIndex() != -1) {
+                JList list = (JList) ev.getSource();
+                Object selectionValues[] = list.getSelectedValues();
+                tiedot.setText(selectionValues[0].toString());
+            } else {
+                tiedot.setText("");
+            }
+        });
     }
 
     public JFrame getFrame() {

@@ -56,17 +56,17 @@ public class DrinkkiTest {
         assertEquals("sekoita", drinkki.getResepti());
     }
     
-//    @Test
-//    public void toStringOikein() {
-//        assertEquals("gt" + "\n" + "sekoita", drinkki.toString());
-//    }
-//    
-//    @Test
-//    public void toStringAineellaOikein() {
-//        Ainesosa osa = new Ainesosa("gin", "4cl");
-//        drinkki.setAine(osa);
-//        assertEquals("gt" + "\n" + "gin 4cl" + "\n" + "sekoita", drinkki.toString());
-//    }
+    @Test
+    public void toStringOikein() {
+        assertEquals("<html>gt" + "<br/>" + "sekoita", drinkki.toString());
+    }
+    
+    @Test
+    public void toStringAineellaOikein() {
+        Ainesosa osa = new Ainesosa("gin", "4cl");
+        drinkki.setAine(osa);
+        assertEquals("<html>gt" + "<br/>" + "gin 4cl" + "<br/>" + "sekoita", drinkki.toString());
+    }
     
     @Test
     public void equalsOikein() {

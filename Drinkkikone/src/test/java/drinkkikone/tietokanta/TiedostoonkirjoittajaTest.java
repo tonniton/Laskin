@@ -10,6 +10,7 @@ import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Vector;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -61,7 +62,9 @@ public class TiedostoonkirjoittajaTest {
         Drinkki gt = new Drinkki("gin & tonic", "tarjoille jäillä");
         gt.setAine(new Ainesosa("gin", "4cl"));
         gt.setAine(new Ainesosa("tonic", "12cl"));
-        kirjoittaja.lisaaTiedostoon(gt);
+        Vector<Drinkki> drinkit = new Vector();
+        drinkit.add(gt);
+        kirjoittaja.lisaaTiedostoon(drinkit);
         lukija.lueTiedosto();
         assertEquals(kirjanpito.getDrinkit().get(0).getNimi(), gt.getNimi());
         assertEquals(kirjanpito.getDrinkit().get(0).getResepti(), gt.getResepti());

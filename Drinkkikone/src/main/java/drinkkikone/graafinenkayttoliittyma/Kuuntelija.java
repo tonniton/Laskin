@@ -21,21 +21,23 @@ public class Kuuntelija implements ActionListener {
     private JTextField syote;
     private JButton lisaa;
     private JButton poista;
-    private JButton nollaa;
+    private JButton lisaaDrinkki;
     private Kirjanpito kirjanpito;
     private Vector osaTiedot;
     private Vector mahdolliset;
+    private Drinkinlisaaja drinkinlisaaja;
 
-    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton nollaa) {
+    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton lisaaDrinkki) {
         this.osat = kentta1;
         this.drinkit = kentta2;
         this.syote = kentta3;
         this.lisaa = lisaa;
         this.poista = poista;
-        this.nollaa = nollaa;
-        this.kirjanpito = kirjanpito.getInstance();
+        this.lisaaDrinkki = lisaaDrinkki;
+        this.kirjanpito = Kirjanpito.getInstance();
         this.osaTiedot = kirjanpito.getOsat();
         this.mahdolliset = kirjanpito.getMahdolliset();
+        this.drinkinlisaaja = new Drinkinlisaaja();
     }
 
     @Override
@@ -45,8 +47,10 @@ public class Kuuntelija implements ActionListener {
             lisaaOsa(lisattava);
         } else if (ae.getSource() == poista) {
             poistaOsa();
+        } else if (ae.getSource() == lisaaDrinkki) {
+           lisaaDrinkki();
         }
-    }
+    }    
 
     public void lisaaOsa(String lisattava) {
         if (!lisattava.isEmpty()) {
@@ -68,8 +72,12 @@ public class Kuuntelija implements ActionListener {
                 valittu = osaTiedot.size() - 1;
             }
             osat.setSelectedIndex(valittu);
+            kirjanpito.paivitaMahdolliset();
+            drinkit.setListData(mahdolliset);
         }
-        kirjanpito.paivitaMahdolliset();
-        drinkit.setListData(mahdolliset);
+    }
+    
+    public void lisaaDrinkki() {
+        drinkinlisaaja.run();
     }
 }

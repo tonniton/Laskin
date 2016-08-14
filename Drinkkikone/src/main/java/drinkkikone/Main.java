@@ -9,6 +9,7 @@ import drinkkikone.tietokanta.Tiedostoonkirjoittaja;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
@@ -21,8 +22,9 @@ public class Main {
         tl.lueTiedosto();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
-        
-        
+        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+//        kirjoittaja.getKirjoittaja().append("aa");
+        kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
         
 //        File tiedosto = new File("tietokanta.txt");
 //        Scanner lukija = new Scanner(tiedosto);

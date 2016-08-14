@@ -82,4 +82,20 @@ public class KirjanpitoTest {
         kirjanpito.poistaOsa("gin");
         assertEquals(kirjanpito.getOsat().contains(osa), false);
     }
+    
+    @Test
+    public void paivitaMahdolliset() {
+        kirjanpito.setOsa(new Ainesosa("gin"));
+        kirjanpito.setOsa(new Ainesosa("tonic"));
+        kirjanpito.setDrinkki(gt);
+        kirjanpito.paivitaMahdolliset();
+        assertEquals(kirjanpito.getMahdolliset().get(0), gt);
+    }
+    
+//    @Test
+//    public void OnnistuukoInstance() {
+//        Kirjanpito kirjanpito2;
+//        kirjanpito2 = Kirjanpito.getInstance();
+//        assertEquals(kirjanpito2, new Kirjanpito());
+//    }
 }

@@ -71,15 +71,14 @@ public class Kayttoliittyma implements Runnable {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JButton lisaa = new JButton("lisaa");
         JButton poista = new JButton("poista");
-        JButton nollaa = new JButton("Z");
-        Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, syote, lisaa, poista, nollaa);
+        JButton lisaaDrinkki = new JButton("Lisaa drinkki");
+        Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, syote, lisaa, poista, lisaaDrinkki);
         lisaa.addActionListener(kuuntelija);
         poista.addActionListener(kuuntelija);
-//        nollaa.addActionListener(kuuntelija);
+        lisaaDrinkki.addActionListener(kuuntelija);
         panel.add(lisaa);
         panel.add(poista);
-//        nollaa.setEnabled(false);
-//        panel.add(nollaa);
+        panel.add(lisaaDrinkki);
         return panel;
     }
     

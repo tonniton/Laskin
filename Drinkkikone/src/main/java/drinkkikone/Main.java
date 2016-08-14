@@ -10,21 +10,43 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException, InvocationTargetException {
         Kirjanpito kirjanpito = Kirjanpito.getInstance();
         String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe.txt";
         Tiedostonlukija tl = new Tiedostonlukija(kirjanpito, polku);
         tl.lueTiedosto();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
-        SwingUtilities.invokeLater(kayttoliittyma);
-        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
-//        kirjoittaja.getKirjoittaja().append("aa");
-        kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
+        kayttoliittyma.run();
+//        SwingUtilities.invokeLater(kayttoliittyma);
+////        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+////        kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
+        
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+        public void run() {
+//            System.out.println("In shutdown hook");
+        Tiedostoonkirjoittaja kirjoittaja = null;
+            try {
+                kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            try {
+                kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        }, "Shutdown-thread"));
+        
         
 //        File tiedosto = new File("tietokanta.txt");
 //        Scanner lukija = new Scanner(tiedosto);
@@ -44,4 +66,5 @@ public class Main {
 ////            System.out.println(drinkki);
 ////        }
     }
+
 }

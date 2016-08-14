@@ -33,9 +33,6 @@ public class Drinkinkuuntelija implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        Drinkki drinkki = new Drinkki("nimi", "resepti");
-        kirjanpito.setDrinkki(drinkki);
-        System.out.println("aa");
         if (e.getSource() == lisaaNappi) {
             lisaaDrinkki();
         }
@@ -44,12 +41,18 @@ public class Drinkinkuuntelija implements ActionListener{
     public void lisaaDrinkki() {
         String nimi = ((JTextField) container.getComponent(1)).getText();
         String resepti = ((JTextField) container.getComponent(3)).getText();
-        Drinkki drinkki = new Drinkki("nimi", "resepti");
-//        for (int i = 6; i < 44; i += 4) {
-//            String osanimi = ((JTextField) container.getComponent(i)).getText();
-//            String maara = ((JTextField) container.getComponent(i + 1)).getText();
-//            drinkki.setAine(new Ainesosa(osanimi, maara));
-//        }
+        if (nimi.isEmpty() || resepti.isEmpty()) {
+            return;
+        }
+        Drinkki drinkki = new Drinkki(nimi, resepti);
+        for (int i = 6; i < 44; i += 4) {
+            String osanimi = ((JTextField) container.getComponent(i)).getText();
+            String maara = ((JTextField) container.getComponent(i + 1)).getText();
+            if (osanimi.isEmpty() || maara.isEmpty()) {
+                break;
+            }
+            drinkki.setAine(new Ainesosa(osanimi, maara));
+        }
         kirjanpito.setDrinkki(drinkki);
     }
     

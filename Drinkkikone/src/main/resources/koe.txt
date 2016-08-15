@@ -6,3 +6,7 @@ rommikola#tarjoile kylmänä
 rommi#4cl
 kola#12cl
 
+aamukahvi#sekoita
+jaloviina#2cl
+kahvilikööri#2cl
+

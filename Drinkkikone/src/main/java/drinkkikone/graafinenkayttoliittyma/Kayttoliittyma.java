@@ -15,6 +15,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.List;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JButton;
@@ -94,8 +95,10 @@ public class Kayttoliittyma implements Runnable {
         drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
             if(drinkit.getLastVisibleIndex() != -1) {
                 JList list = (JList) ev.getSource();
-                Object selectionValues[] = list.getSelectedValues();
-                tiedot.setText(selectionValues[0].toString());
+                if (!list.getSelectedValuesList().isEmpty()) {
+                    ArrayList selectionValues = (ArrayList) list.getSelectedValuesList();
+                    tiedot.setText(selectionValues.get(0).toString());
+                }
             } else {
                 tiedot.setText("");
             }

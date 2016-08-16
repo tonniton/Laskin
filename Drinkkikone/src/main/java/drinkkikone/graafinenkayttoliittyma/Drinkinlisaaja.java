@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -21,8 +22,10 @@ import javax.swing.WindowConstants;
 public class Drinkinlisaaja implements Runnable {
 
     private JFrame frame;
+    private JList lista;
 
-    public Drinkinlisaaja() {
+    public Drinkinlisaaja(JList lista) {
+        this.lista = lista;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class Drinkinlisaaja implements Runnable {
         JTextField nimiKentta = new JTextField();
         JLabel resepti = new JLabel("Resepti: ");
         JTextField reseptiKentta = new JTextField();
-        JButton lisaaNappi = new JButton("Lisää Drinkki!");
+        JButton lisaaNappi = new JButton("LisÃ¤Ã¤ Drinkki!");
 
         container.add(drinkinNimi);
         container.add(nimiKentta);
@@ -55,7 +58,7 @@ public class Drinkinlisaaja implements Runnable {
         
         for (int i = 0; i < 10; i++) {
             container.add(new JLabel("Ainesosan nimi: "));
-            container.add(new JLabel("Ainesosan määrä: "));
+            container.add(new JLabel("Ainesosan mÃ¤Ã¤rÃ¤: "));
             container.add(new JTextField());
             container.add(new JTextField());
         }
@@ -65,6 +68,8 @@ public class Drinkinlisaaja implements Runnable {
         
         Drinkinkuuntelija kuuntelija = new Drinkinkuuntelija(container);
         lisaaNappi.addActionListener(kuuntelija);
+        DrinkinIkkunaKuuntelija kuuntelija2 = new DrinkinIkkunaKuuntelija(lista);
+        frame.addWindowListener(kuuntelija2);
     }
 
     public JFrame getFrame() {

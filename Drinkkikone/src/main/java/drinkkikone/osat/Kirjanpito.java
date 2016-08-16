@@ -22,6 +22,13 @@ public class Kirjanpito {
             osat.remove(osa);
         }
     }
+    
+    public void poistaDrinkki(String nimi) {
+        Drinkki drinkki = new Drinkki(nimi, "");
+        if (drinkit.contains(drinkki)) {
+            drinkit.remove(drinkki);
+        }
+    }
 
     public void setDrinkki(Drinkki drinkki) {
         this.drinkit.add(drinkki);

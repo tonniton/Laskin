@@ -1,12 +1,4 @@
-gin & tonic#tarjoille jäillä
-gin#4cl
-tonic#12cl
-
-rommikola#tarjoile kylmänä
+rommikola#sekoita
 rommi#4cl
 kola#12cl
-
-aamukahvi#sekoita
-jaloviina#2cl
-kahvilikööri#2cl
 

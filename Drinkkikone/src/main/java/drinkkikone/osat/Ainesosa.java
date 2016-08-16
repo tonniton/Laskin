@@ -1,28 +1,53 @@
 package drinkkikone.osat;
 
+/**
+ *
+ * @author Viljami
+ */
 public class Ainesosa {
 
     private String nimi;
     private String maara;
 
+    /**
+     *
+     * @param nimi
+     */
     public Ainesosa(String nimi) {
         this.nimi = nimi;
         this.maara = "";
     }
 
+    /**
+     *
+     * @param nimi
+     * @param maara
+     */
     public Ainesosa(String nimi, String maara) {
         this.nimi = nimi;
         this.maara = maara;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNimi() {
         return nimi;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMaara() {
         return maara;
     }
 
+    /**
+     *
+     * @param maara
+     */
     public void setMaara(String maara) {
         this.maara = maara;
     }
@@ -32,6 +57,7 @@ public class Ainesosa {
         return nimi + " " + maara;
     }
 
+    @Override
     public boolean equals(Object olio) {
         if (olio == null) {
             return false;

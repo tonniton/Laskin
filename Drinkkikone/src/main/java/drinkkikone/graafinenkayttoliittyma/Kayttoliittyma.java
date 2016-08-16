@@ -56,30 +56,39 @@ public class Kayttoliittyma implements Runnable {
 
         JList osat = new JList(kirjanpito.getOsat());
         JList drinkit = new JList(kirjanpito.getMahdolliset());
-        JTextField syote = new JTextField();
         drinkit.setCellRenderer(new DrinkinRenderoija());
         JLabel tiedot = new JLabel("", SwingConstants.CENTER);
         
         luoDrinkkiTiedonpaivittaja(drinkit, tiedot);
         luoTekstiAlue(osat, drinkit, tiedot, container);
 
-        JPanel valikko = luovalikko(osat, drinkit, syote);
+        JPanel valikko = luovalikko(osat, drinkit);
         container.add(valikko, BorderLayout.SOUTH);
-        container.add(syote, BorderLayout.NORTH);
+        
+        luoOtsikot(container);
     }
 
-    private JPanel luovalikko(JList vasen, JList oikea, JTextField syote) {
-        JPanel panel = new JPanel(new GridLayout(1, 3));
+    private JPanel luovalikko(JList vasen, JList oikea) {
+        JPanel panel = new JPanel(new GridLayout(2, 3));
+        JTextField syote = new JTextField();
         JButton lisaa = new JButton("lisaa");
         JButton poista = new JButton("poista");
         JButton lisaaDrinkki = new JButton("Lisaa drinkki");
-        Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, syote, lisaa, poista, lisaaDrinkki);
+        JButton poistaDrinkki = new JButton("poista drinkki");
+        
+        Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, syote, lisaa, poista, lisaaDrinkki, poistaDrinkki);
+        
+        syote.addActionListener(kuuntelija);
         lisaa.addActionListener(kuuntelija);
         poista.addActionListener(kuuntelija);
         lisaaDrinkki.addActionListener(kuuntelija);
+        poistaDrinkki.addActionListener(kuuntelija);
+        
+        panel.add(syote);
         panel.add(lisaa);
         panel.add(poista);
         panel.add(lisaaDrinkki);
+        panel.add(poistaDrinkki);
         return panel;
     }
     
@@ -103,6 +112,17 @@ public class Kayttoliittyma implements Runnable {
                 tiedot.setText("");
             }
         });
+    }
+    
+    public void luoOtsikot(Container container) {
+        JPanel panel = new JPanel(new GridLayout(1, 3));
+        JLabel otsikko1 = new JLabel("AinesOsat: ");
+        JLabel otsikko2 = new JLabel("Drinkit: ");
+        JLabel otsikko3 = new JLabel("Ohje: ");
+        panel.add(otsikko1);
+        panel.add(otsikko2);
+        panel.add(otsikko3);
+        container.add(panel, BorderLayout.NORTH);
     }
 
     public JFrame getFrame() {

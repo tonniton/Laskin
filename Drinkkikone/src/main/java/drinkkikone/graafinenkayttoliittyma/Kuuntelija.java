@@ -6,6 +6,7 @@
 package drinkkikone.graafinenkayttoliittyma;
 
 import drinkkikone.osat.Ainesosa;
+import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,22 +23,24 @@ public class Kuuntelija implements ActionListener {
     private JButton lisaa;
     private JButton poista;
     private JButton lisaaDrinkki;
+    private JButton poistaDrinkki;
     private Kirjanpito kirjanpito;
     private Vector osaTiedot;
     private Vector mahdolliset;
     private Drinkinlisaaja drinkinlisaaja;
 
-    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton lisaaDrinkki) {
+    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton lisaaDrinkki, JButton poistaDrinkki) {
         this.osat = kentta1;
         this.drinkit = kentta2;
         this.syote = kentta3;
         this.lisaa = lisaa;
         this.poista = poista;
         this.lisaaDrinkki = lisaaDrinkki;
+        this.poistaDrinkki = poistaDrinkki;
         this.kirjanpito = Kirjanpito.getInstance();
         this.osaTiedot = kirjanpito.getOsat();
         this.mahdolliset = kirjanpito.getMahdolliset();
-        this.drinkinlisaaja = new Drinkinlisaaja();
+        this.drinkinlisaaja = new Drinkinlisaaja(drinkit);
     }
 
     @Override
@@ -48,18 +51,19 @@ public class Kuuntelija implements ActionListener {
         } else if (ae.getSource() == poista) {
             poistaOsa();
         } else if (ae.getSource() == lisaaDrinkki) {
-           lisaaDrinkki();
+            lisaaDrinkki();
+        } else if (ae.getSource() == poistaDrinkki) {
+            poistaDrinkki();
         }
-    }    
+        kirjanpito.paivitaMahdolliset();
+        drinkit.setListData(mahdolliset);
+    }
 
     public void lisaaOsa(String lisattava) {
         if (!lisattava.isEmpty()) {
             syote.setText("");
-//            kirjanpito.setOsa(new Ainesosa(lisattava));
             osaTiedot.addElement(new Ainesosa(lisattava));
             osat.setListData(osaTiedot);
-            kirjanpito.paivitaMahdolliset();
-            drinkit.setListData(mahdolliset);
         }
     }
 
@@ -72,12 +76,22 @@ public class Kuuntelija implements ActionListener {
                 valittu = osaTiedot.size() - 1;
             }
             osat.setSelectedIndex(valittu);
-            kirjanpito.paivitaMahdolliset();
-            drinkit.setListData(mahdolliset);
         }
     }
-    
+
     public void lisaaDrinkki() {
         drinkinlisaaja.run();
+    }
+    
+    public void poistaDrinkki() {
+        int valittu = drinkit.getSelectedIndex();
+        if (valittu >= 0) {
+            Vector<Drinkki> Drinkkilista = Kirjanpito.getInstance().getDrinkit();
+            Drinkkilista.removeElementAt(valittu);
+            if (valittu >= osaTiedot.size()) {
+                valittu = osaTiedot.size() - 1;
+            }
+            osat.setSelectedIndex(valittu);
+        }
     }
 }

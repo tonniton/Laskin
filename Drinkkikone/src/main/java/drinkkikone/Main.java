@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException, InvocationTargetException {
         Kirjanpito kirjanpito = Kirjanpito.getInstance();
-        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe.txt";
+        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
         Tiedostonlukija tl = new Tiedostonlukija(kirjanpito, polku);
         tl.lueTiedosto();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
@@ -30,6 +30,7 @@ public class Main {
 ////        kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
         
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+        @Override
         public void run() {
 //            System.out.println("In shutdown hook");
         Tiedostoonkirjoittaja kirjoittaja = null;

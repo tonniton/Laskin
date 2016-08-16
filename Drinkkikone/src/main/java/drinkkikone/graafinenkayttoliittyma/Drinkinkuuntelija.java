@@ -11,6 +11,7 @@ import drinkkikone.osat.Kirjanpito;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -18,7 +19,7 @@ import javax.swing.JTextField;
  *
  * @author Viljami
  */
-public class Drinkinkuuntelija implements ActionListener{
+public class Drinkinkuuntelija implements ActionListener {
 
     private Container container;
     private JButton lisaaNappi;
@@ -55,5 +56,4 @@ public class Drinkinkuuntelija implements ActionListener{
         }
         kirjanpito.setDrinkki(drinkki);
     }
-    
 }

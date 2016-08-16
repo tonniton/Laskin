@@ -1,6 +1,7 @@
 package drinkkikone.osat;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Vector;
 import javax.swing.ListModel;
 
@@ -73,6 +74,5 @@ public class Kirjanpito {
          kirjanpito = new Kirjanpito();
       }
       return kirjanpito;
-   }
-
+    }
 }

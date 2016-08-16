@@ -84,6 +84,13 @@ public class KirjanpitoTest {
     }
     
     @Test
+    public void OnnistuukoDrinkinPoisto() {
+        kirjanpito.setDrinkki(gt);
+        kirjanpito.poistaDrinkki("gin & tonic");
+        assertEquals(kirjanpito.getDrinkit().isEmpty(), true);
+    }
+    
+    @Test
     public void paivitaMahdolliset() {
         kirjanpito.setOsa(new Ainesosa("gin"));
         kirjanpito.setOsa(new Ainesosa("tonic"));

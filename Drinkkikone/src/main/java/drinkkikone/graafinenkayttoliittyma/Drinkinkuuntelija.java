@@ -55,5 +55,15 @@ public class Drinkinkuuntelija implements ActionListener {
             drinkki.setAine(new Ainesosa(osanimi, maara));
         }
         kirjanpito.setDrinkki(drinkki);
+        tyhjennaTekstit();
+    }
+    
+    public void tyhjennaTekstit() {
+        ((JTextField) container.getComponent(1)).setText("");
+        ((JTextField) container.getComponent(3)).setText("");
+        for (int i = 6; i < 44; i += 4) {
+            ((JTextField) container.getComponent(i)).setText("");
+            ((JTextField) container.getComponent(i + 1)).setText("");
+        }
     }
 }

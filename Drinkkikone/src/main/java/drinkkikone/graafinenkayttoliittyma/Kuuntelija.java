@@ -10,6 +10,7 @@ import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -25,12 +26,13 @@ public class Kuuntelija implements ActionListener {
     private JButton poista;
     private JButton lisaaDrinkki;
     private JButton poistaDrinkki;
+    private JButton randomDrinkki;
     private Kirjanpito kirjanpito;
     private Vector osaTiedot;
     private Vector mahdolliset;
     private Drinkinlisaaja drinkinlisaaja;
 
-    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton lisaaDrinkki, JButton poistaDrinkki, JPanel panel) {
+    public Kuuntelija(JList kentta1, JList kentta2, JPanel panel) {
         this.osat = kentta1;
         this.drinkit = kentta2;
         this.syote = (JTextField) panel.getComponent(0);
@@ -38,6 +40,7 @@ public class Kuuntelija implements ActionListener {
         this.poista = (JButton) panel.getComponent(2);
         this.lisaaDrinkki = (JButton) panel.getComponent(3);
         this.poistaDrinkki = (JButton) panel.getComponent(4);
+        this.randomDrinkki = (JButton) panel.getComponent(5);
         this.kirjanpito = Kirjanpito.getInstance();
         this.osaTiedot = kirjanpito.getOsat();
         this.mahdolliset = kirjanpito.getMahdolliset();
@@ -55,6 +58,9 @@ public class Kuuntelija implements ActionListener {
             lisaaDrinkki();
         } else if (ae.getSource() == poistaDrinkki) {
             poistaDrinkki();
+        } else if (ae.getSource() == randomDrinkki) {
+            randomDrinkki();
+            return;
         }
         kirjanpito.paivitaMahdolliset();
         drinkit.setListData(mahdolliset);
@@ -89,10 +95,18 @@ public class Kuuntelija implements ActionListener {
         if (valittu >= 0) {
             Drinkki poistettava = Kirjanpito.getInstance().getMahdolliset().get(valittu);
             kirjanpito.poistaDrinkki(poistettava.getNimi());
-            if (valittu >= osaTiedot.size()) {
-                valittu = osaTiedot.size() - 1;
+            if (valittu >= mahdolliset.size()) {
+                valittu = mahdolliset.size() - 1;
             }
-            osat.setSelectedIndex(valittu);
+            drinkit.setSelectedIndex(valittu);
+        }
+    }
+    
+    public void randomDrinkki() {
+        if (kirjanpito.getMahdolliset().size() > 0) {
+            Random random = new Random();
+            int valittu = random.nextInt(mahdolliset.size());
+            drinkit.setSelectedIndex(valittu);
         }
     }
 }

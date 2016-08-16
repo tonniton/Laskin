@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Kuuntelija implements ActionListener {
@@ -29,14 +30,14 @@ public class Kuuntelija implements ActionListener {
     private Vector mahdolliset;
     private Drinkinlisaaja drinkinlisaaja;
 
-    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton lisaaDrinkki, JButton poistaDrinkki) {
+    public Kuuntelija(JList kentta1, JList kentta2, JTextField kentta3, JButton lisaa, JButton poista, JButton lisaaDrinkki, JButton poistaDrinkki, JPanel panel) {
         this.osat = kentta1;
         this.drinkit = kentta2;
-        this.syote = kentta3;
-        this.lisaa = lisaa;
-        this.poista = poista;
-        this.lisaaDrinkki = lisaaDrinkki;
-        this.poistaDrinkki = poistaDrinkki;
+        this.syote = (JTextField) panel.getComponent(0);
+        this.lisaa = (JButton) panel.getComponent(1);
+        this.poista = (JButton) panel.getComponent(2);
+        this.lisaaDrinkki = (JButton) panel.getComponent(3);
+        this.poistaDrinkki = (JButton) panel.getComponent(4);
         this.kirjanpito = Kirjanpito.getInstance();
         this.osaTiedot = kirjanpito.getOsat();
         this.mahdolliset = kirjanpito.getMahdolliset();
@@ -86,8 +87,6 @@ public class Kuuntelija implements ActionListener {
     public void poistaDrinkki() {
         int valittu = drinkit.getSelectedIndex();
         if (valittu >= 0) {
-//            Vector<Drinkki> Drinkkilista = Kirjanpito.getInstance().getDrinkit();
-//            Drinkkilista.removeElementAt(valittu);
             Drinkki poistettava = Kirjanpito.getInstance().getMahdolliset().get(valittu);
             kirjanpito.poistaDrinkki(poistettava.getNimi());
             if (valittu >= osaTiedot.size()) {

@@ -68,8 +68,7 @@ public class Drinkinlisaaja implements Runnable {
         
         Drinkinkuuntelija kuuntelija = new Drinkinkuuntelija(container);
         lisaaNappi.addActionListener(kuuntelija);
-        DrinkinIkkunaKuuntelija kuuntelija2 = new DrinkinIkkunaKuuntelija(lista);
-        frame.addWindowListener(kuuntelija2);
+        frame.addWindowListener(new DrinkinIkkunaKuuntelija(lista));
     }
 
     public JFrame getFrame() {

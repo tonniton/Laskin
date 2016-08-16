@@ -23,6 +23,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.SwingConstants;
@@ -51,7 +52,7 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-
+        frame.addWindowListener(new IkkunaKuuntelija());
         Kirjanpito kirjanpito = Kirjanpito.getInstance();
 
         JList osat = new JList(kirjanpito.getOsat());
@@ -94,9 +95,17 @@ public class Kayttoliittyma implements Runnable {
     
     private void luoTekstiAlue(JList osat, JList drinkit, JLabel tiedot, Container container) {
         JPanel menu = new JPanel(new GridLayout(1, 3));
-        menu.add(osat);
-        menu.add(drinkit);
-        menu.add(tiedot);
+        
+        JScrollPane scrollPane = new JScrollPane();
+	scrollPane.getViewport().add(osat);
+        menu.add(scrollPane);
+        JScrollPane scrollPane2 = new JScrollPane();
+	scrollPane2.getViewport().add(drinkit);
+        menu.add(scrollPane2);
+        JScrollPane scrollPane3 = new JScrollPane();
+	scrollPane3.getViewport().add(tiedot);
+        menu.add(scrollPane3);
+        
         container.add(menu);
     }
     

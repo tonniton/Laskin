@@ -86,8 +86,10 @@ public class Kuuntelija implements ActionListener {
     public void poistaDrinkki() {
         int valittu = drinkit.getSelectedIndex();
         if (valittu >= 0) {
-            Vector<Drinkki> Drinkkilista = Kirjanpito.getInstance().getDrinkit();
-            Drinkkilista.removeElementAt(valittu);
+//            Vector<Drinkki> Drinkkilista = Kirjanpito.getInstance().getDrinkit();
+//            Drinkkilista.removeElementAt(valittu);
+            Drinkki poistettava = Kirjanpito.getInstance().getMahdolliset().get(valittu);
+            kirjanpito.poistaDrinkki(poistettava.getNimi());
             if (valittu >= osaTiedot.size()) {
                 valittu = osaTiedot.size() - 1;
             }

@@ -19,34 +19,34 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException, InvocationTargetException {
-        Kirjanpito kirjanpito = Kirjanpito.getInstance();
-        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
-        Tiedostonlukija tl = new Tiedostonlukija(kirjanpito, polku);
-        tl.lueTiedosto();
+////        Kirjanpito kirjanpito = Kirjanpito.getInstance();
+////        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
+////        Tiedostonlukija tl = new Tiedostonlukija(kirjanpito, polku);
+////        tl.lueTiedosto();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
-        kayttoliittyma.run();
-//        SwingUtilities.invokeLater(kayttoliittyma);
-////        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
-////        kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
+        SwingUtilities.invokeLater(kayttoliittyma);
+////        kayttoliittyma.run();
         
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-        @Override
-        public void run() {
-//            System.out.println("In shutdown hook");
-        Tiedostoonkirjoittaja kirjoittaja = null;
-            try {
-                kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            try {
-                kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        }, "Shutdown-thread"));
+//        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+//        @Override
+//        public void run() {
+//        Tiedostoonkirjoittaja kirjoittaja = null;
+//            try {
+//                kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+//            } catch (IOException ex) {
+//                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            
+//            try {
+//                kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
+//            } catch (IOException ex) {
+//                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        }, "Shutdown-thread"));
+        
+////////////        Tiedostoonkirjoittaja kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+////////////        kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
         
         
 //        File tiedosto = new File("tietokanta.txt");

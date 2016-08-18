@@ -17,6 +17,12 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * 
+ * Luokka toteuttaa graafisessa käyttöliittymässä annetut komennot.
+ *
+ * @author Viljami
+ */
 public class Kuuntelija implements ActionListener {
 
     private JList osat;
@@ -32,6 +38,12 @@ public class Kuuntelija implements ActionListener {
     private Vector mahdolliset;
     private Drinkinlisaaja drinkinlisaaja;
 
+    /**
+     *
+     * @param kentta1 lista Ainesosia
+     * @param kentta2 lista Drinkkejä
+     * @param panel paneeli joka sisältää annettavat komennot
+     */
     public Kuuntelija(JList kentta1, JList kentta2, JPanel panel) {
         this.osat = kentta1;
         this.drinkit = kentta2;
@@ -44,7 +56,7 @@ public class Kuuntelija implements ActionListener {
         this.kirjanpito = Kirjanpito.getInstance();
         this.osaTiedot = kirjanpito.getOsat();
         this.mahdolliset = kirjanpito.getMahdolliset();
-        this.drinkinlisaaja = new Drinkinlisaaja(drinkit);
+        this.drinkinlisaaja = new Drinkinlisaaja();
     }
 
     @Override
@@ -66,6 +78,12 @@ public class Kuuntelija implements ActionListener {
         drinkit.setListData(mahdolliset);
     }
 
+    /**
+     * 
+     * Lisaa parametrina annetun nimisen ainesosan.
+     *
+     * @param lisattava lisattava ainesosa
+     */
     public void lisaaOsa(String lisattava) {
         if (!lisattava.isEmpty()) {
             syote.setText("");
@@ -74,6 +92,11 @@ public class Kuuntelija implements ActionListener {
         }
     }
 
+    /**
+     * 
+     * Poistaa valitun osan.
+     *
+     */
     public void poistaOsa() {
         int valittu = osat.getSelectedIndex();
         if (valittu >= 0) {
@@ -86,10 +109,20 @@ public class Kuuntelija implements ActionListener {
         }
     }
 
+    /**
+     * 
+     * Käynnistää drinkin lisäys ikkunan, jossa voi lisätä drinkkejä.
+     *
+     */
     public void lisaaDrinkki() {
         drinkinlisaaja.run();
     }
     
+    /**
+     *
+     * Poistaa valitun drinkin valikoimasta.
+     * 
+     */
     public void poistaDrinkki() {
         int valittu = drinkit.getSelectedIndex();
         if (valittu >= 0) {
@@ -102,6 +135,11 @@ public class Kuuntelija implements ActionListener {
         }
     }
     
+    /**
+     * 
+     * Antaa satunnaisen drinkin mahdollisista vaihtoehdoista.
+     *
+     */
     public void randomDrinkki() {
         if (kirjanpito.getMahdolliset().size() > 0) {
             Random random = new Random();

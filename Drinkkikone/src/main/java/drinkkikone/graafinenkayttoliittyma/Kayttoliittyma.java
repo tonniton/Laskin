@@ -31,10 +31,19 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+/**
+ * 
+ * Luokka luo käytettävän graafisen käyttöliittymän.
+ *
+ * @author Viljami
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
 
+    /**
+     *
+     */
     public Kayttoliittyma() {
     }
 
@@ -52,7 +61,6 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        frame.addWindowListener(new IkkunaKuuntelija());
         Kirjanpito kirjanpito = Kirjanpito.getInstance();
 
         JList osat = new JList(kirjanpito.getOsat());
@@ -66,6 +74,7 @@ public class Kayttoliittyma implements Runnable {
         JPanel valikko = luovalikko(osat, drinkit);
         container.add(valikko, BorderLayout.SOUTH);
         
+        frame.addWindowListener(new IkkunaKuuntelija(drinkit));
         luoOtsikot(container);
     }
 
@@ -127,7 +136,7 @@ public class Kayttoliittyma implements Runnable {
         });
     }
     
-    public void luoOtsikot(Container container) {
+    private void luoOtsikot(Container container) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JLabel otsikko1 = new JLabel("AinesOsat: ");
         JLabel otsikko2 = new JLabel("Drinkit: ");
@@ -138,6 +147,10 @@ public class Kayttoliittyma implements Runnable {
         container.add(panel, BorderLayout.NORTH);
     }
 
+    /**
+     *
+     * @return
+     */
     public JFrame getFrame() {
         return frame;
     }

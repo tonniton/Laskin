@@ -17,15 +17,19 @@ import javax.swing.WindowConstants;
 
 /**
  *
+ * Luokka luo uuden ikkunan drinkkien lisäystä varten.
+ * 
  * @author Viljami
  */
 public class Drinkinlisaaja implements Runnable {
 
     private JFrame frame;
-    private JList lista;
 
-    public Drinkinlisaaja(JList lista) {
-        this.lista = lista;
+    /**
+     *
+     * 
+     */
+    public Drinkinlisaaja() {
     }
 
     @Override
@@ -68,9 +72,12 @@ public class Drinkinlisaaja implements Runnable {
         
         Drinkinkuuntelija kuuntelija = new Drinkinkuuntelija(container);
         lisaaNappi.addActionListener(kuuntelija);
-        frame.addWindowListener(new DrinkinIkkunaKuuntelija(lista));
     }
 
+    /**
+     *
+     * @return
+     */
     public JFrame getFrame() {
         return frame;
     }

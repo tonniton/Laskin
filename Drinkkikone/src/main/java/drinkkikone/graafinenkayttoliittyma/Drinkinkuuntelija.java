@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 
 /**
  *
+ * Luokka kuuntelee drinkin lisäys nappia.
+ * 
  * @author Viljami
  */
 public class Drinkinkuuntelija implements ActionListener {
@@ -25,6 +27,10 @@ public class Drinkinkuuntelija implements ActionListener {
     private JButton lisaaNappi;
     private Kirjanpito kirjanpito;
 
+    /**
+     *
+     * @param container käytössä oleva container olio.
+     */
     public Drinkinkuuntelija(Container container) {
         this.container = container;
         lisaaNappi = (JButton) container.getComponent(45);
@@ -39,6 +45,11 @@ public class Drinkinkuuntelija implements ActionListener {
         }
     }
     
+    /**
+     *
+     * Lisää drinkin syötetietojen perusteella ja tyhjentää sen jälkeen syöte lokerot.
+     * 
+     */
     public void lisaaDrinkki() {
         String nimi = ((JTextField) container.getComponent(1)).getText();
         String resepti = ((JTextField) container.getComponent(3)).getText();
@@ -54,11 +65,11 @@ public class Drinkinkuuntelija implements ActionListener {
             }
             drinkki.setAine(new Ainesosa(osanimi, maara));
         }
-        kirjanpito.setDrinkki(drinkki);
+        kirjanpito.addDrinkki(drinkki);
         tyhjennaTekstit();
     }
-    
-    public void tyhjennaTekstit() {
+
+    private void tyhjennaTekstit() {
         ((JTextField) container.getComponent(1)).setText("");
         ((JTextField) container.getComponent(3)).setText("");
         for (int i = 6; i < 44; i += 4) {

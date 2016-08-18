@@ -12,6 +12,8 @@ import javax.swing.JList;
 import javax.swing.event.ListSelectionEvent;
 
 /**
+ * 
+ * Luokka asettaa mahdollisten drinkkien listassa olevista drinkeistä näkyviin ainostaan niiden nimen.
  *
  * @author Viljami
  */

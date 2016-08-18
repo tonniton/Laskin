@@ -2,6 +2,8 @@ package drinkkikone.osat;
 
 /**
  *
+ * Luo rakenteen drinkeissä käytetäville juomille 
+ * 
  * @author Viljami
  */
 public class Ainesosa {
@@ -11,7 +13,7 @@ public class Ainesosa {
 
     /**
      *
-     * @param nimi
+     * @param nimi ainesosan nimi
      */
     public Ainesosa(String nimi) {
         this.nimi = nimi;
@@ -20,8 +22,8 @@ public class Ainesosa {
 
     /**
      *
-     * @param nimi
-     * @param maara
+     * @param nimi ainesosan nimi
+     * @param maara ainesosan määrä
      */
     public Ainesosa(String nimi, String maara) {
         this.nimi = nimi;
@@ -30,7 +32,7 @@ public class Ainesosa {
 
     /**
      *
-     * @return
+     * @return ainesosan nimi
      */
     public String getNimi() {
         return nimi;
@@ -38,7 +40,7 @@ public class Ainesosa {
 
     /**
      *
-     * @return
+     * @return ainesosan määrä
      */
     public String getMaara() {
         return maara;
@@ -46,7 +48,7 @@ public class Ainesosa {
 
     /**
      *
-     * @param maara
+     * @param maara ainesosan määrä
      */
     public void setMaara(String maara) {
         this.maara = maara;

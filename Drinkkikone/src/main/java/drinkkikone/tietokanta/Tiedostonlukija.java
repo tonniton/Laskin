@@ -8,7 +8,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * soghdagerhgöih
+ * 
+ * Luokka lukee tiedostosta sinne kirjoitetut drinkit.
  *
  * @author Viljami
  */
@@ -21,7 +22,8 @@ public class Tiedostonlukija {
     /**
      * fth
      *
-     * @param kirjanpito
+     * @param kirjanpito kirjanpito olio
+     * @param polku luettavan tiedoston sijainti
      * @throws FileNotFoundException
      */
     public Tiedostonlukija(Kirjanpito kirjanpito, String polku) throws FileNotFoundException {
@@ -31,13 +33,15 @@ public class Tiedostonlukija {
     }
 
     /**
+     * 
+     * Lukee tiedostossa olevat drinkit ja siirtää tiedot kirjanpito-olioon.
      *
      */
     public void lueTiedosto() {
         while (lukija.hasNextLine()) {
             Drinkki drinkki = lisaaDrinkki();
             lisaaAineet(drinkki);
-            kirjanpito.setDrinkki(drinkki);
+            kirjanpito.addDrinkki(drinkki);
         }
         lukija.close();
     }

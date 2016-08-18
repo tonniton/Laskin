@@ -64,37 +64,37 @@ public class KirjanpitoTest {
     
     @Test
     public void OnnistuukoDrinkkiOsallaAineista() {
-        kirjanpito.setOsa(new Ainesosa("gin"));  
+        kirjanpito.addOsa(new Ainesosa("gin"));  
         assertEquals(kirjanpito.onnistuukoDrinkki(gt), false);
     }
     
     @Test
     public void OnnistuukoDrinkkiKaikillaAineilla() {
-        kirjanpito.setOsa(new Ainesosa("gin"));
-        kirjanpito.setOsa(new Ainesosa("tonic"));
+        kirjanpito.addOsa(new Ainesosa("gin"));
+        kirjanpito.addOsa(new Ainesosa("tonic"));
         assertEquals(kirjanpito.onnistuukoDrinkki(gt), true);
     }
     
     @Test
     public void OnnistuukoOsanPoisto() {
         Ainesosa osa = new Ainesosa("gin");
-        kirjanpito.setOsa(osa);
+        kirjanpito.addOsa(osa);
         kirjanpito.poistaOsa("gin");
         assertEquals(kirjanpito.getOsat().contains(osa), false);
     }
     
     @Test
     public void OnnistuukoDrinkinPoisto() {
-        kirjanpito.setDrinkki(gt);
+        kirjanpito.addDrinkki(gt);
         kirjanpito.poistaDrinkki("gin & tonic");
         assertEquals(kirjanpito.getDrinkit().isEmpty(), true);
     }
     
     @Test
     public void paivitaMahdolliset() {
-        kirjanpito.setOsa(new Ainesosa("gin"));
-        kirjanpito.setOsa(new Ainesosa("tonic"));
-        kirjanpito.setDrinkki(gt);
+        kirjanpito.addOsa(new Ainesosa("gin"));
+        kirjanpito.addOsa(new Ainesosa("tonic"));
+        kirjanpito.addDrinkki(gt);
         kirjanpito.paivitaMahdolliset();
         assertEquals(kirjanpito.getMahdolliset().get(0), gt);
     }

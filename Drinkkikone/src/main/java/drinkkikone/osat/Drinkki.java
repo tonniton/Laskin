@@ -2,30 +2,57 @@ package drinkkikone.osat;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * Luo rakenteen drinkkikoneessa käytettäville drinkeille.
+ * 
+ * @author Viljami
+ */
 public class Drinkki {
 
     private String nimi;
     private ArrayList<Ainesosa> aineet;
     private String resepti;
 
+    /**
+     *
+     * @param nimi drinkin nimi
+     * @param resepti drinkin teko-ohjeet
+     */
     public Drinkki(String nimi, String resepti) {
         this.nimi = nimi;
         this.aineet = new ArrayList();
         this.resepti = resepti;
     }
 
+    /**
+     *
+     * @return drinkin nimi
+     */
     public String getNimi() {
         return nimi;
     }
 
+    /**
+     *
+     * @return drinkin resepti
+     */
     public String getResepti() {
         return resepti;
     }
 
+    /**
+     *
+     * @param aine drinkissä käytettävä aine
+     */
     public void setAine(Ainesosa aine) {
         this.aineet.add(aine);
     }
 
+    /**
+     *
+     * @return kaikki drinkkiin tarvittavat aineet
+     */
     public ArrayList<Ainesosa> getAineet() {
         return aineet;
     }

@@ -14,17 +14,27 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JList;
 
 /**
+ * 
+ * Luokka lukee tiedostossa olevat drinkit käynnistyksen yhteydessä.
+ * Sulkemisen yhteydessä luokka tyhjentää tiedoston ja kirjoittaa sen uudestaan päivitetyllä drinkkilistalla.
  *
  * @author Viljami
  */
 public class IkkunaKuuntelija implements WindowListener {
+    private Kirjanpito kirjanpito;
+    private JList lista;
+    
+    public IkkunaKuuntelija(JList lista) {
+        kirjanpito = Kirjanpito.getInstance();
+        this.lista = lista;
+    }
     
 
     @Override
     public void windowOpened(WindowEvent e) {
-        Kirjanpito kirjanpito = Kirjanpito.getInstance();
         String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
         Tiedostonlukija tl = null;
         try {
@@ -37,7 +47,6 @@ public class IkkunaKuuntelija implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        Kirjanpito kirjanpito = Kirjanpito.getInstance();
         String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
         Tiedostoonkirjoittaja kirjoittaja = null;
         try {
@@ -66,6 +75,8 @@ public class IkkunaKuuntelija implements WindowListener {
 
     @Override
     public void windowActivated(WindowEvent e) {
+        kirjanpito.paivitaMahdolliset();
+        lista.setListData(kirjanpito.getMahdolliset());
     }
 
     @Override

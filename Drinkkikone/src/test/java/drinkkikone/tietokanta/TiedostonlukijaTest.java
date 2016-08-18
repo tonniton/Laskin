@@ -38,7 +38,7 @@ public class TiedostonlukijaTest {
     @Before
     public void setUp() throws FileNotFoundException {
         kirjanpito = new Kirjanpito();
-        polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe.txt";
+        polku = "src/main/resources/testi.txt";
         lukija = new Tiedostonlukija(kirjanpito, polku);
     }
 

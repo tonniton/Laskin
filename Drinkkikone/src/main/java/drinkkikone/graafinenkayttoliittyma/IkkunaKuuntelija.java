@@ -26,38 +26,35 @@ import javax.swing.JList;
 public class IkkunaKuuntelija implements WindowListener {
     private Kirjanpito kirjanpito;
     private JList lista;
+    private String polku;
+    private Tiedostonlukija lukija;
+    private Tiedostoonkirjoittaja kirjoittaja;
     
     public IkkunaKuuntelija(JList lista) {
         kirjanpito = Kirjanpito.getInstance();
         this.lista = lista;
+        polku = "src/main/resources/tietokanta.txt";
+        try {
+            lukija = new Tiedostonlukija(kirjanpito, polku);
+        } catch (FileNotFoundException ex) {
+        }
+        try {
+            kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+        } catch (IOException ex) {
+        }
     }
     
 
     @Override
     public void windowOpened(WindowEvent e) {
-        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
-        Tiedostonlukija tl = null;
-        try {
-            tl = new Tiedostonlukija(kirjanpito, polku);
-        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(IkkunaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        tl.lueTiedosto();
+        lukija.lueTiedosto();
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        String polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\tietokanta.txt";
-        Tiedostoonkirjoittaja kirjoittaja = null;
-        try {
-            kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
-        } catch (IOException ex) {
-//            Logger.getLogger(IkkunaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
-        }
         try {
             kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
         } catch (IOException ex) {
-//            Logger.getLogger(IkkunaKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

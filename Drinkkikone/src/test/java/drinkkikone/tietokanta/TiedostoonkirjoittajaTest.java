@@ -43,7 +43,7 @@ public class TiedostoonkirjoittajaTest {
     @Before
     public void setUp() throws FileNotFoundException, IOException {
         kirjanpito = new Kirjanpito();
-        polku = "C:\\Users\\Viljami\\Documents\\GitHub\\repo\\Drinkkikone\\src\\main\\resources\\koe2.txt";
+        polku = "src/main/resources/testi2.txt";
         lukija = new Tiedostonlukija(kirjanpito, polku);
         kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
     }

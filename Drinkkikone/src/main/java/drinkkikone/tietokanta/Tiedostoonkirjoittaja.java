@@ -44,7 +44,7 @@ public class Tiedostoonkirjoittaja {
     private void lisaaDrinkki(Drinkki drinkki) throws IOException {
         kirjoittaja.write(drinkki.getNimi() + "#" + drinkki.getResepti() + "\n");
         for (Ainesosa osa : drinkki.getAineet()) {
-            kirjoittaja.write(osa.getNimi() + "#" + osa.getMaara() + "\n");
+            kirjoittaja.write(osa.getNimi() + "#" + osa.getMaara() + "#" + osa.isTarkea() + "\n");
         }
         kirjoittaja.write("\n");
     }

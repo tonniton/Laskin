@@ -56,11 +56,19 @@ public class Tiedostonlukija {
         String rivi = lukija.nextLine();
         while (!rivi.isEmpty()) {
             String[] sanat = rivi.split("#");
-            drinkki.setAine(new Ainesosa(sanat[0], sanat[1]));
+            boolean tarkea = onkoTarkea(sanat[2]);
+            drinkki.setAine(new Ainesosa(sanat[0], sanat[1], tarkea));
             if (!lukija.hasNextLine()) {
                 break;
             }
             rivi = lukija.nextLine();
         }
+    }
+    
+    private boolean onkoTarkea(String onko) {
+        if (onko.equals("true")) {
+            return true;
+        }
+        return false;
     }
 }

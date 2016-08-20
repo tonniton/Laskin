@@ -99,7 +99,7 @@ public class Kirjanpito {
      */
     public boolean onnistuukoDrinkki(Drinkki drinkki) {
         for (Ainesosa osa : drinkki.getAineet()) {
-            if (!osat.contains(osa)) {
+            if (!osat.contains(osa) && osa.isTarkea()) {
                 return false;
             }
         }

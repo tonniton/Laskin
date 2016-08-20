@@ -10,6 +10,7 @@ public class Ainesosa {
 
     private String nimi;
     private String maara;
+    private boolean tarkea;
 
     /**
      *
@@ -28,6 +29,16 @@ public class Ainesosa {
     public Ainesosa(String nimi, String maara) {
         this.nimi = nimi;
         this.maara = maara;
+    }
+
+    public Ainesosa(String nimi, String maara, boolean tarkea) {
+        this.nimi = nimi;
+        this.maara = maara;
+        this.tarkea = tarkea;
+    }
+
+    public boolean isTarkea() {
+        return tarkea;
     }
 
     /**

@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
 /**
@@ -33,7 +34,7 @@ public class Drinkinkuuntelija implements ActionListener {
      */
     public Drinkinkuuntelija(Container container) {
         this.container = container;
-        lisaaNappi = (JButton) container.getComponent(45);
+        lisaaNappi = (JButton) container.getComponent(68);
         this.kirjanpito = Kirjanpito.getInstance();
     }
     
@@ -52,21 +53,22 @@ public class Drinkinkuuntelija implements ActionListener {
      */
     public void lisaaDrinkki() {
         String nimi = ((JTextField) container.getComponent(1)).getText();
-        String resepti = ((JTextField) container.getComponent(3)).getText();
+        String resepti = ((JTextField) container.getComponent(4)).getText();
         if (nimi.isEmpty() || resepti.isEmpty()) {
             return;
         }
         Drinkki drinkki = new Drinkki(nimi, resepti);
-        for (int i = 6; i < 44; i += 4) {
+        for (int i = 9; i < 66; i += 6) {
             String osanimi = ((JTextField) container.getComponent(i)).getText();
             String maara = ((JTextField) container.getComponent(i + 1)).getText();
-            if (maara.isEmpty()) {
-                maara = " ";
-            }
+            boolean tarkea = ((JCheckBox) container.getComponent(i + 2)).isSelected();
             if (osanimi.isEmpty()) {
                 break;
             }
-            drinkki.setAine(new Ainesosa(osanimi, maara));
+            if (maara.isEmpty()) {
+                maara = " ";
+            }
+            drinkki.setAine(new Ainesosa(osanimi, maara, tarkea));
         }
         kirjanpito.addDrinkki(drinkki);
         tyhjennaTekstit();
@@ -74,10 +76,11 @@ public class Drinkinkuuntelija implements ActionListener {
 
     private void tyhjennaTekstit() {
         ((JTextField) container.getComponent(1)).setText("");
-        ((JTextField) container.getComponent(3)).setText("");
-        for (int i = 6; i < 44; i += 4) {
+        ((JTextField) container.getComponent(4)).setText("");
+        for (int i = 9; i < 66; i += 6) {
             ((JTextField) container.getComponent(i)).setText("");
             ((JTextField) container.getComponent(i + 1)).setText("");
+            ((JCheckBox) container.getComponent(i + 2)).setSelected(false);
         }
     }
 }

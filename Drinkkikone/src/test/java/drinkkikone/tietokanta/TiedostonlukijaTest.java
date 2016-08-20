@@ -38,7 +38,7 @@ public class TiedostonlukijaTest {
     @Before
     public void setUp() throws FileNotFoundException {
         kirjanpito = new Kirjanpito();
-        polku = "src/main/resources/testi.txt";
+        polku = "src/main/resources/testitietokannat/testi.txt";
         lukija = new Tiedostonlukija(kirjanpito, polku);
     }
 

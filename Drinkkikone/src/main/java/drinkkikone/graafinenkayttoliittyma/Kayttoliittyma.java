@@ -81,8 +81,8 @@ public class Kayttoliittyma implements Runnable {
     private JPanel luovalikko(JList vasen, JList oikea) {
         JPanel panel = new JPanel(new GridLayout(2, 3));
         JTextField syote = new JTextField();
-        JButton lisaa = new JButton("lisaa");
-        JButton poista = new JButton("poista");
+        JButton lisaa = new JButton("lisaa ainesosa");
+        JButton poista = new JButton("poista ainesosa");
         JButton lisaaDrinkki = new JButton("Lisaa drinkki");
         JButton poistaDrinkki = new JButton("poista drinkki");
         JButton randomDrinkki = new JButton("random Drinkki");
@@ -138,7 +138,7 @@ public class Kayttoliittyma implements Runnable {
     
     private void luoOtsikot(Container container) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
-        JLabel otsikko1 = new JLabel("AinesOsat: ");
+        JLabel otsikko1 = new JLabel("Ainesosat: ");
         JLabel otsikko2 = new JLabel("Drinkit: ");
         JLabel otsikko3 = new JLabel("Ohje: ");
         panel.add(otsikko1);

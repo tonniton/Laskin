@@ -60,7 +60,10 @@ public class Drinkinkuuntelija implements ActionListener {
         for (int i = 6; i < 44; i += 4) {
             String osanimi = ((JTextField) container.getComponent(i)).getText();
             String maara = ((JTextField) container.getComponent(i + 1)).getText();
-            if (osanimi.isEmpty() || maara.isEmpty()) {
+            if (maara.isEmpty()) {
+                maara = " ";
+            }
+            if (osanimi.isEmpty()) {
                 break;
             }
             drinkki.setAine(new Ainesosa(osanimi, maara));

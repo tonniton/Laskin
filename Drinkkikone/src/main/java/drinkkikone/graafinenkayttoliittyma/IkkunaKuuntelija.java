@@ -5,6 +5,7 @@
  */
 package drinkkikone.graafinenkayttoliittyma;
 
+import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import drinkkikone.tietokanta.Tiedostonlukija;
 import drinkkikone.tietokanta.Tiedostoonkirjoittaja;
@@ -33,14 +34,10 @@ public class IkkunaKuuntelija implements WindowListener {
     public IkkunaKuuntelija(JList lista) {
         kirjanpito = Kirjanpito.getInstance();
         this.lista = lista;
-        polku = "src/main/resources/tietokanta.txt";
+        polku = "src/main/resources/tietokannat/tietokanta.txt";
         try {
             lukija = new Tiedostonlukija(kirjanpito, polku);
         } catch (FileNotFoundException ex) {
-        }
-        try {
-            kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
-        } catch (IOException ex) {
         }
     }
     
@@ -52,6 +49,10 @@ public class IkkunaKuuntelija implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
+        try {
+            kirjoittaja = new Tiedostoonkirjoittaja(false, polku);
+        } catch (IOException ex) {
+        }
         try {
             kirjoittaja.lisaaTiedostoon(kirjanpito.getDrinkit());
         } catch (IOException ex) {

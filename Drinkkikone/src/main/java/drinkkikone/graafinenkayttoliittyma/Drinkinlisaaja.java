@@ -53,7 +53,7 @@ public class Drinkinlisaaja implements Runnable {
         JTextField nimiKentta = new JTextField();
         JLabel resepti = new JLabel("Resepti: ");
         JTextField reseptiKentta = new JTextField();
-        JButton lisaaNappi = new JButton("LisÃ¤Ã¤ Drinkki!");
+        JButton lisaaNappi = new JButton("Lisää Drinkki!");
 
         container.add(drinkinNimi);
         container.add(nimiKentta);
@@ -62,7 +62,7 @@ public class Drinkinlisaaja implements Runnable {
         
         for (int i = 0; i < 10; i++) {
             container.add(new JLabel("Ainesosan nimi: "));
-            container.add(new JLabel("Ainesosan mÃ¤Ã¤rÃ¤: "));
+            container.add(new JLabel("Ainesosan määrä: "));
             container.add(new JTextField());
             container.add(new JTextField());
         }

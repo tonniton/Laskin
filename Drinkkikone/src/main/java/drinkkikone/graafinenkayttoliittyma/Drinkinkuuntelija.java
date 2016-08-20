@@ -34,7 +34,7 @@ public class Drinkinkuuntelija implements ActionListener {
      */
     public Drinkinkuuntelija(Container container) {
         this.container = container;
-        lisaaNappi = (JButton) container.getComponent(68);
+        lisaaNappi = (JButton) container.getComponent(2);
         this.kirjanpito = Kirjanpito.getInstance();
     }
     
@@ -58,7 +58,7 @@ public class Drinkinkuuntelija implements ActionListener {
             return;
         }
         Drinkki drinkki = new Drinkki(nimi, resepti);
-        for (int i = 9; i < 66; i += 6) {
+        for (int i = 9; i < 39; i += 3) {
             String osanimi = ((JTextField) container.getComponent(i)).getText();
             String maara = ((JTextField) container.getComponent(i + 1)).getText();
             boolean tarkea = ((JCheckBox) container.getComponent(i + 2)).isSelected();
@@ -77,7 +77,7 @@ public class Drinkinkuuntelija implements ActionListener {
     private void tyhjennaTekstit() {
         ((JTextField) container.getComponent(1)).setText("");
         ((JTextField) container.getComponent(4)).setText("");
-        for (int i = 9; i < 66; i += 6) {
+        for (int i = 9; i < 39; i += 3) {
             ((JTextField) container.getComponent(i)).setText("");
             ((JTextField) container.getComponent(i + 1)).setText("");
             ((JCheckBox) container.getComponent(i + 2)).setSelected(false);

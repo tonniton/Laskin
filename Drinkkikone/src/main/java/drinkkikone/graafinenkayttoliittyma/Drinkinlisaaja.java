@@ -47,7 +47,7 @@ public class Drinkinlisaaja implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        GridLayout layout = new GridLayout(23, 3);
+        GridLayout layout = new GridLayout(13, 3);
         container.setLayout(layout);
 
         JLabel drinkinNimi = new JLabel("Drinkin nimi: ");
@@ -58,22 +58,20 @@ public class Drinkinlisaaja implements Runnable {
 
         container.add(drinkinNimi);
         container.add(nimiKentta);
-        container.add(new JLabel(""));
+        container.add(lisaaNappi);
         container.add(resepti);
         container.add(reseptiKentta);
         container.add(new JLabel(""));
         
+        
+        container.add(new JLabel("Ainesosan nimi: "));
+        container.add(new JLabel("Ainesosan määrä: "));
+        container.add(new JLabel("Välttämätön: "));
         for (int i = 0; i < 10; i++) {
-            container.add(new JLabel("Ainesosan nimi: "));
-            container.add(new JLabel("Ainesosan määrä: "));
-            container.add(new JLabel("Välttämätön: "));
             container.add(new JTextField());
             container.add(new JTextField());
             container.add(new JCheckBox());
         }
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
-        container.add(lisaaNappi);
         
         Drinkinkuuntelija kuuntelija = new Drinkinkuuntelija(container);
         lisaaNappi.addActionListener(kuuntelija);

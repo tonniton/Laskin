@@ -5,3 +5,9 @@ tonic#12cl#false
 rommi#aaa
 rommi#8cl#true
 
+tähtien sota#sekoita
+jaloviina*#2cl#true
+jaloviina***#2cl#true
+
+aaaaa#admdakmd akmsdmaksd asdsd dss sd sddssd sdds sdsdsdd sdsd sdsddd
+

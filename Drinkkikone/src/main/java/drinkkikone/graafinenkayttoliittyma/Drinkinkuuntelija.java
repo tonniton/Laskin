@@ -28,7 +28,6 @@ import javax.swing.JViewport;
  */
 public class Drinkinkuuntelija implements ActionListener {
 
-    private Container container;
     private JButton lisaaNappi;
     private Kirjanpito kirjanpito;
     private JPanel paneeli;
@@ -36,13 +35,11 @@ public class Drinkinkuuntelija implements ActionListener {
 
     /**
      *
-     * @param container käytössä oleva container olio.
      * @param paneeli
      * @param paneeli2
      */
-    public Drinkinkuuntelija(Container container, JPanel paneeli,  JPanel paneeli2) {
-        this.container = container;
-        lisaaNappi = (JButton) paneeli.getComponent(36);
+    public Drinkinkuuntelija(JPanel paneeli,  JPanel paneeli2) {
+        lisaaNappi = (JButton) paneeli2.getComponent(2);
         this.kirjanpito = Kirjanpito.getInstance();
         this.paneeli = paneeli;
         this.paneeli2 = paneeli2;
@@ -65,7 +62,6 @@ public class Drinkinkuuntelija implements ActionListener {
         String nimi = ((JTextField) paneeli.getComponent(1)).getText();
         JTextArea ohje = (JTextArea) ((JViewport) (((JScrollPane) paneeli2.getComponent(1)).getViewport())).getView();
         String resepti = ohje.getText();
-//        String resepti = ((JTextArea) ((JScrollPane) paneeli2.getComponent(1)).getComponent(0)).getText();
         if (nimi.isEmpty() || resepti.isEmpty()) {
             return;
         }

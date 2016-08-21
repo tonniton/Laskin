@@ -67,7 +67,11 @@ public class Ainesosa {
 
     @Override
     public String toString() {
-        return nimi + " " + maara;
+        String palaute = nimi + " " + maara;
+        if (!tarkea) {
+            palaute += " (valinnainen)";
+        }
+        return palaute;
     }
 
     @Override

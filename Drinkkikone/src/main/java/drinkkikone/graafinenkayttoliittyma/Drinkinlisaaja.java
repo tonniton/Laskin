@@ -54,35 +54,13 @@ public class Drinkinlisaaja implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        GridLayout layout = new GridLayout(13, 3);
         JPanel paneeli = new JPanel();
-        paneeli.setLayout(layout);
+        paneeli.setLayout(new GridLayout(12, 3));
         container.add(paneeli, BorderLayout.CENTER);
-        JPanel paneeli2 = new JPanel();
-        paneeli2.setLayout(new BorderLayout());
-        container.add(paneeli2, BorderLayout.EAST);
-//        container.setLayout(layout);
         
-        JLabel drinkinNimi = new JLabel("Drinkin nimi: ");
-        JTextField nimiKentta = new JTextField();
-        JLabel resepti = new JLabel("Resepti: ");
-        JTextField reseptiKentta = new JTextField();
-        JButton lisaaNappi = new JButton("Lisää Drinkki!");
-
-        JTextArea textArea = new JTextArea(10, 10);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        
-        paneeli.add(drinkinNimi);
-        paneeli.add(nimiKentta);
+        paneeli.add(new JLabel("Drinkin nimi: "));
+        paneeli.add(new JTextField());
         paneeli.add(new JLabel(""));
-//        paneeli.add(lisaaNappi);
-        paneeli2.add(resepti, BorderLayout.NORTH);
-        paneeli2.add(scrollPane, BorderLayout.CENTER);
-//        container.add(reseptiKentta);
-//        container.add(scrollPane);
-//        container.add(new JLabel(""));
         
         paneeli.add(new JLabel("Ainesosan nimi: "));
         paneeli.add(new JLabel("Ainesosan määrä: "));
@@ -92,14 +70,24 @@ public class Drinkinlisaaja implements Runnable {
             paneeli.add(new JTextField());
             paneeli.add(new JCheckBox());
         }
-        paneeli.add(lisaaNappi);
         
-        Drinkinkuuntelija kuuntelija = new Drinkinkuuntelija(container, paneeli, paneeli2);
+        JPanel paneeli2 = new JPanel();
+        paneeli2.setLayout(new BorderLayout());
+        container.add(paneeli2, BorderLayout.EAST);
+        
+        JLabel resepti = new JLabel("Resepti: ");
+        JTextArea reseptikentta = new JTextArea(10, 10);
+        reseptikentta.setLineWrap(true);
+        reseptikentta.setWrapStyleWord(true);
+        JScrollPane scrollPane = new JScrollPane(reseptikentta);
+        JButton lisaaNappi = new JButton("Lisää Drinkki!");
+        
+        paneeli2.add(resepti, BorderLayout.NORTH);
+        paneeli2.add(scrollPane, BorderLayout.CENTER);
+        paneeli2.add(lisaaNappi, BorderLayout.SOUTH);
+        
+        Drinkinkuuntelija kuuntelija = new Drinkinkuuntelija(paneeli, paneeli2);
         lisaaNappi.addActionListener(kuuntelija);
-    }
-    
-    private void luoReseptiOsa() {
-        
     }
 
     /**

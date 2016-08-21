@@ -35,7 +35,7 @@ public class AinesosaTest {
     @Before
     public void setUp() {
         osa = new Ainesosa("gin");
-        osa2 = new Ainesosa("tonic", "12cl");
+        osa2 = new Ainesosa("tonic", "12cl", true);
     }
 
     @After
@@ -69,7 +69,7 @@ public class AinesosaTest {
     
     @Test
     public void equalsOikein() {
-        Ainesosa osa2 = new Ainesosa("gin", "4cl");
+        Ainesosa osa2 = new Ainesosa("gin", "4cl", true);
         assertEquals(osa.equals(osa2), true);
         assertEquals(osa.equals(null), false);
         assertEquals(osa.equals(new String()), false);

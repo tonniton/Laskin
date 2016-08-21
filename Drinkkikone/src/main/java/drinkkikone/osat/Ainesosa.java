@@ -19,6 +19,7 @@ public class Ainesosa {
     public Ainesosa(String nimi) {
         this.nimi = nimi;
         this.maara = "";
+        this.tarkea = true;
     }
 
     /**
@@ -26,10 +27,10 @@ public class Ainesosa {
      * @param nimi ainesosan nimi
      * @param maara ainesosan määrä
      */
-    public Ainesosa(String nimi, String maara) {
-        this.nimi = nimi;
-        this.maara = maara;
-    }
+//    public Ainesosa(String nimi, String maara) {
+//        this.nimi = nimi;
+//        this.maara = maara;
+//    }
 
     public Ainesosa(String nimi, String maara, boolean tarkea) {
         this.nimi = nimi;

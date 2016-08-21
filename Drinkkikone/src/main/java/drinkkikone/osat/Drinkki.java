@@ -59,11 +59,11 @@ public class Drinkki {
 
     @Override
     public String toString() {
-        String palaute = "<html>" + nimi + "<br/>";
+        String palaute = nimi + "\n\n";
         for (Ainesosa aine : aineet) {
-            palaute += aine.toString() + "<br/>";
+            palaute += aine.toString() + "\n";
         }
-        return palaute + resepti;
+        return palaute + "\n" + resepti;
     }
 
     @Override

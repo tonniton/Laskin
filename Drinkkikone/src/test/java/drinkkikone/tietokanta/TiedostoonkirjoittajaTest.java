@@ -60,8 +60,8 @@ public class TiedostoonkirjoittajaTest {
      @Test
      public void toimiikoKirjoitus() throws IOException {
         Drinkki gt = new Drinkki("gin & tonic", "tarjoille jäillä");
-        gt.setAine(new Ainesosa("gin", "4cl"));
-        gt.setAine(new Ainesosa("tonic", "12cl"));
+        gt.setAine(new Ainesosa("gin", "4cl", true));
+        gt.setAine(new Ainesosa("tonic", "12cl", true));
         Vector<Drinkki> drinkit = new Vector();
         drinkit.add(gt);
         kirjoittaja.lisaaTiedostoon(drinkit);

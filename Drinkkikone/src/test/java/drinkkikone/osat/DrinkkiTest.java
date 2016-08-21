@@ -58,14 +58,14 @@ public class DrinkkiTest {
     
     @Test
     public void toStringOikein() {
-        assertEquals("<html>gt" + "<br/>" + "sekoita", drinkki.toString());
+        assertEquals("gt" + "\n\n\n" + "sekoita", drinkki.toString());
     }
     
     @Test
     public void toStringAineellaOikein() {
-        Ainesosa osa = new Ainesosa("gin", "4cl");
+        Ainesosa osa = new Ainesosa("gin", "4cl", true);
         drinkki.setAine(osa);
-        assertEquals("<html>gt" + "<br/>" + "gin 4cl" + "<br/>" + "sekoita", drinkki.toString());
+        assertEquals("gt" + "\n\n" + "gin 4cl" + "\n\n" + "sekoita", drinkki.toString());
     }
     
     @Test

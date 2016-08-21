@@ -1,4 +1,4 @@
 rommikola#sekoita
-rommi#4cl
-kola#12cl
+rommi#4cl#true
+kola#12cl#true
 

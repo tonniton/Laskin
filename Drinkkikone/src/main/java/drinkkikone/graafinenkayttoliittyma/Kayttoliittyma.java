@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.SwingConstants;
@@ -66,7 +67,12 @@ public class Kayttoliittyma implements Runnable {
         JList osat = new JList(kirjanpito.getOsat());
         JList drinkit = new JList(kirjanpito.getMahdolliset());
         drinkit.setCellRenderer(new DrinkinRenderoija());
-        JLabel tiedot = new JLabel("", SwingConstants.CENTER);
+        JTextArea tiedot = new JTextArea();
+        tiedot.setLineWrap(true);
+        tiedot.setWrapStyleWord(true);
+        tiedot.setEnabled(false);
+        tiedot.setDisabledTextColor(Color.BLACK);
+        JScrollPane resepti = new JScrollPane(tiedot);
         
         luoDrinkkiTiedonpaivittaja(drinkit, tiedot);
         luoTekstiAlue(osat, drinkit, tiedot, container);
@@ -106,7 +112,7 @@ public class Kayttoliittyma implements Runnable {
         return panel;
     }
     
-    private void luoTekstiAlue(JList osat, JList drinkit, JLabel tiedot, Container container) {
+    private void luoTekstiAlue(JList osat, JList drinkit, JTextArea tiedot, Container container) {
         JPanel menu = new JPanel(new GridLayout(1, 3));
         
         JScrollPane scrollPane = new JScrollPane();
@@ -122,17 +128,19 @@ public class Kayttoliittyma implements Runnable {
         container.add(menu);
     }
     
-    private void luoDrinkkiTiedonpaivittaja(JList drinkit, JLabel tiedot) {
+    private void luoDrinkkiTiedonpaivittaja(JList drinkit, JTextArea tiedot) {
         drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
-            if(drinkit.getLastVisibleIndex() != -1) {
+//            if(drinkit.getLastVisibleIndex() != -1) {
                 JList list = (JList) ev.getSource();
                 if (!list.getSelectedValuesList().isEmpty()) {
                     ArrayList selectionValues = (ArrayList) list.getSelectedValuesList();
                     tiedot.setText(selectionValues.get(0).toString());
+                } else {
+                    tiedot.setText("");
                 }
-            } else {
-                tiedot.setText("");
-            }
+//            } else {
+//                tiedot.setText("");
+//            }
         });
     }
     

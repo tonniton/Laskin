@@ -45,6 +45,8 @@ public class IkkunaKuuntelija implements WindowListener {
     @Override
     public void windowOpened(WindowEvent e) {
         lukija.lueTiedosto();
+//        kirjanpito.paivitaMahdolliset();
+//        lista.setListData(kirjanpito.getMahdolliset());
     }
 
     @Override

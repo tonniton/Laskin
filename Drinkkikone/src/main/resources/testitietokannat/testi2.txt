@@ -1,4 +1,4 @@
 gin & tonic#tarjoille jäillä
-gin#4cl#false
-tonic#12cl#false
+gin#4cl#true
+tonic#12cl#true
 

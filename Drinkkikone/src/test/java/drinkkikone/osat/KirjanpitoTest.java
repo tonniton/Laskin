@@ -37,8 +37,8 @@ public class KirjanpitoTest {
     public void setUp() {
         kirjanpito = new Kirjanpito();
         gt = new Drinkki("gin & tonic", "sekoita");
-        gt.setAine(new Ainesosa("gin", "4cl"));
-        gt.setAine(new Ainesosa("tonic", "12cl"));
+        gt.setAine(new Ainesosa("gin", "4cl", true));
+        gt.setAine(new Ainesosa("tonic", "12cl", true));
     }
     
     @After

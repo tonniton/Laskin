@@ -61,5 +61,12 @@ public class TiedostonlukijaTest {
         assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getNimi(), "kola");
         assertEquals(kirjanpito.getDrinkit().get(0).getAineet().get(1).getMaara(), "12cl");
     }
+    
+    @Test
+    public void onkoTarkeat() {
+        lukija.lueTiedosto();
+        assertEquals(lukija.onkoTarkea("true"), true);
+        assertEquals(lukija.onkoTarkea("asd"), false);
+    }
 
 }

@@ -14,3 +14,10 @@ viski#4cl#true
 kola#12cl#true
 jäitä# #false
 
+Marianne#Laita lasiin jäitä, kaada liköörit jäiden päälle ja pidennä drinkki maidolla. Koristele drinkki parilla ohuella pillillä.
+minttulikööri#2 cl#true
+kaakaolikööri#2 cl#true
+maito#8 cl#true
+jäitä# #false
+pilli# #false
+

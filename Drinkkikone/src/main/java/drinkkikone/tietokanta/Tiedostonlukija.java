@@ -65,7 +65,7 @@ public class Tiedostonlukija {
         }
     }
     
-    private boolean onkoTarkea(String onko) {
+    public boolean onkoTarkea(String onko) {
         if (onko.equals("true")) {
             return true;
         }

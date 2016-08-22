@@ -8,4 +8,6 @@
 
 **Sekvenssikaaviot: **
 
-![Lisaa Ainesosa](/dokumentaatio/Sekvenssikaaviot/WP_20160822_001.jpg "Luokkakaavio")
+![Lisaa Ainesosa](/dokumentaatio/sekvenssikaaviot/WP_20160822_001.jpg "Luokkakaavio")
+
+![Lisaa Drinkki](/dokumentaatio/sekvenssikaaviot/WP_20160822_003.jpg "Luokkakaavio")

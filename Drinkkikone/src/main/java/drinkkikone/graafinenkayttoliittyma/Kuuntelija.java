@@ -87,7 +87,7 @@ public class Kuuntelija implements ActionListener {
     public void lisaaOsa(String lisattava) {
         if (!lisattava.isEmpty()) {
             syote.setText("");
-            osaTiedot.addElement(new Ainesosa(lisattava));
+            kirjanpito.addOsa(new Ainesosa(lisattava));
             osat.setListData(osaTiedot);
         }
     }

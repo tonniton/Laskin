@@ -23,4 +23,7 @@ Päivä | Tunnit | Kuvaus
 15.08.2016 | 3h | graafinen käyttöliittymä ja dokumentaation päivittelyä
 16.08.2016 | 1h | javadoc
 18.08.2016 | 2h | javadoc ja dokumentaatiota
+20.08.2016 | 3h | lisätään ainesosan toiminnallisuutta
+21.08.2016 | 3h | graafinen käyttöliittymä
+22.08.2016 | 4h | dokumentaatiota
 ... | ... | ...

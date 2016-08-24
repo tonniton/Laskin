@@ -9,7 +9,6 @@ import drinkkikone.osat.Drinkki;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
-import javax.swing.event.ListSelectionEvent;
 
 /**
  * 
@@ -18,6 +17,7 @@ import javax.swing.event.ListSelectionEvent;
  * @author Viljami
  */
 public class DrinkinRenderoija extends DefaultListCellRenderer {
+    @Override
     public Component getListCellRendererComponent(JList<?> lista,
                                  Object arvo,
                                  int index,
@@ -25,15 +25,8 @@ public class DrinkinRenderoija extends DefaultListCellRenderer {
                                  boolean cellHasFocus) 
     {
         super.getListCellRendererComponent(lista, arvo, index, valittu, cellHasFocus);
-//        if (value instanceof Drinkki) {
             Drinkki drinkki = (Drinkki)arvo;
             setText(drinkki.getNimi());
-//            setToolTipText(drinkki.getResepti());
-            // setIcon(ingredient.getIcon());
-//        }
-//            if (valittu) {
-//                setText(drinkki.toString());
-//            }
         return this;
     }
 }

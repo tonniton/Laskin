@@ -26,12 +26,8 @@ public class Ainesosa {
      *
      * @param nimi ainesosan nimi
      * @param maara ainesosan määrä
+     * @param tarkea onko välttämätön drinkin kannalta
      */
-//    public Ainesosa(String nimi, String maara) {
-//        this.nimi = nimi;
-//        this.maara = maara;
-//    }
-
     public Ainesosa(String nimi, String maara, boolean tarkea) {
         this.nimi = nimi;
         this.maara = maara;

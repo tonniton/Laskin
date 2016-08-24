@@ -5,19 +5,13 @@
  */
 package drinkkikone.graafinenkayttoliittyma;
 
-import drinkkikone.osat.Ainesosa;
-import drinkkikone.osat.Drinkki;
 import drinkkikone.osat.Kirjanpito;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.List;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,11 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
-import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 /**
  * 
@@ -130,7 +121,6 @@ public class Kayttoliittyma implements Runnable {
     
     private void luoDrinkkiTiedonpaivittaja(JList drinkit, JTextArea tiedot) {
         drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
-//            if(drinkit.getLastVisibleIndex() != -1) {
                 JList list = (JList) ev.getSource();
                 if (!list.getSelectedValuesList().isEmpty()) {
                     ArrayList selectionValues = (ArrayList) list.getSelectedValuesList();
@@ -138,9 +128,6 @@ public class Kayttoliittyma implements Runnable {
                 } else {
                     tiedot.setText("");
                 }
-//            } else {
-//                tiedot.setText("");
-//            }
         });
     }
     

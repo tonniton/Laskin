@@ -21,7 +21,7 @@ import javax.swing.JViewport;
 /**
  *
  * Luokka kuuntelee drinkin lisäys nappia.
- * 
+ *
  * @author Viljami
  */
 public class Drinkinkuuntelija implements ActionListener {
@@ -36,30 +36,31 @@ public class Drinkinkuuntelija implements ActionListener {
      * @param paneeli
      * @param paneeli2
      */
-    public Drinkinkuuntelija(JPanel paneeli,  JPanel paneeli2) {
+    public Drinkinkuuntelija(JPanel paneeli, JPanel paneeli2) {
         lisaaNappi = (JButton) paneeli2.getComponent(2);
         this.kirjanpito = Kirjanpito.getInstance();
         this.paneeli = paneeli;
         this.paneeli2 = paneeli2;
     }
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == lisaaNappi) {
             lisaaDrinkki();
         }
     }
-    
+
     /**
      *
-     * Lisää drinkin syötetietojen perusteella ja tyhjentää sen jälkeen syöte lokerot.
-     * 
+     * Lisää drinkin syötetietojen perusteella ja tyhjentää sen jälkeen syöte
+     * lokerot.
+     *
      */
     public void lisaaDrinkki() {
         String nimi = ((JTextField) paneeli.getComponent(1)).getText();
         JTextArea ohje = (JTextArea) ((JViewport) (((JScrollPane) paneeli2.getComponent(1)).getViewport())).getView();
-        String resepti = ohje.getText();
+        String[] data = ohje.getText().split("\n");
+        String resepti = listaStringiksi(data);
         if (nimi.isEmpty() || resepti.isEmpty()) {
             return;
         }
@@ -89,5 +90,13 @@ public class Drinkinkuuntelija implements ActionListener {
             ((JTextField) paneeli.getComponent(i + 1)).setText("");
             ((JCheckBox) paneeli.getComponent(i + 2)).setSelected(false);
         }
+    }
+
+    String listaStringiksi(String[] data) {
+        String palaute = "";
+        for (String s : data) {
+            palaute += s + " ";
+        }
+        return palaute;
     }
 }

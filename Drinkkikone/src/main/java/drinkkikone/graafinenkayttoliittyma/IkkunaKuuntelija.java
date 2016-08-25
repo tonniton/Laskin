@@ -15,19 +15,21 @@ import java.io.IOException;
 import javax.swing.JList;
 
 /**
- * 
- * Luokka lukee tiedostossa olevat drinkit käynnistyksen yhteydessä.
- * Sulkemisen yhteydessä luokka tyhjentää tiedoston ja kirjoittaa sen uudestaan päivitetyllä drinkkilistalla.
+ *
+ * Luokka lukee tiedostossa olevat drinkit käynnistyksen yhteydessä. Sulkemisen
+ * yhteydessä luokka tyhjentää tiedoston ja kirjoittaa sen uudestaan
+ * päivitetyllä drinkkilistalla.
  *
  * @author Viljami
  */
 public class IkkunaKuuntelija implements WindowListener {
+
     private Kirjanpito kirjanpito;
     private JList lista;
     private String polku;
     private Tiedostonlukija lukija;
     private Tiedostoonkirjoittaja kirjoittaja;
-    
+
     public IkkunaKuuntelija(JList lista) {
         kirjanpito = Kirjanpito.getInstance();
         this.lista = lista;
@@ -37,7 +39,6 @@ public class IkkunaKuuntelija implements WindowListener {
         } catch (FileNotFoundException ex) {
         }
     }
-    
 
     @Override
     public void windowOpened(WindowEvent e) {
@@ -77,5 +78,5 @@ public class IkkunaKuuntelija implements WindowListener {
     @Override
     public void windowDeactivated(WindowEvent e) {
     }
-    
+
 }

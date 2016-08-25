@@ -26,10 +26,10 @@ import javax.swing.JViewport;
  */
 public class Drinkinkuuntelija implements ActionListener {
 
-    private JButton lisaaNappi;
-    private Kirjanpito kirjanpito;
-    private JPanel paneeli;
-    private JPanel paneeli2;
+    private final JButton lisaaNappi;
+    private final Kirjanpito kirjanpito;
+    private final JPanel paneeli;
+    private final JPanel paneeli2;
 
     /**
      *

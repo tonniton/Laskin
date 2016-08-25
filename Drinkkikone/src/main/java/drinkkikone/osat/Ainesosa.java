@@ -2,8 +2,8 @@ package drinkkikone.osat;
 
 /**
  *
- * Luo rakenteen drinkeissä käytetäville juomille 
- * 
+ * Luo rakenteen drinkeissä käytetäville juomille
+ *
  * @author Viljami
  */
 public class Ainesosa {
@@ -34,6 +34,10 @@ public class Ainesosa {
         this.tarkea = tarkea;
     }
 
+    /**
+     *
+     * @return onko tarkea
+     */
     public boolean isTarkea() {
         return tarkea;
     }

@@ -8,32 +8,34 @@ import java.io.OutputStreamWriter;
 import java.util.Vector;
 
 /**
- * 
+ *
  * Luokka kirjoittaa tiedostoon listan drinkkejä
  *
  * @author Viljami
  */
 public class Tiedostoonkirjoittaja {
+
     OutputStreamWriter kirjoittaja;
 
     /**
      *
-     * @param sailyykoVanha boolean joka päättää poistetaanko tiedoston alkuperäinen tieto sinne kirjoittaessa
+     * @param sailyykoVanha boolean joka päättää poistetaanko tiedoston
+     * alkuperäinen tieto sinne kirjoittaessa
      * @param polku kertoo tiedoston sijainnin
      * @throws IOException
      */
     public Tiedostoonkirjoittaja(boolean sailyykoVanha, String polku) throws IOException {
-        kirjoittaja = new OutputStreamWriter(new FileOutputStream(polku, sailyykoVanha),"UTF-8");
+        kirjoittaja = new OutputStreamWriter(new FileOutputStream(polku, sailyykoVanha), "UTF-8");
     }
 
     /**
      *
      * Kirjoittaa drinkit tiedostoon.
-     * 
+     *
      * @param drinkit lista drinkkejä
      * @throws IOException
      */
-    public void lisaaTiedostoon(Vector <Drinkki> drinkit) throws IOException {
+    public void lisaaTiedostoon(Vector<Drinkki> drinkit) throws IOException {
         for (Drinkki drinkki : drinkit) {
             lisaaDrinkki(drinkki);
         }
@@ -50,11 +52,10 @@ public class Tiedostoonkirjoittaja {
 
     /**
      *
-     * @return 
+     * @return
      */
     public OutputStreamWriter getKirjoittaja() {
         return kirjoittaja;
     }
-    
-    
+
 }

@@ -3,16 +3,18 @@ package drinkkikone.osat;
 import java.util.Vector;
 
 /**
- * 
- * Luokka pitää kirjaa käytössä olevista ainesosista ja mahdollisista drinkeistä.
+ *
+ * Luokka pitää kirjaa käytössä olevista ainesosista ja mahdollisista
+ * drinkeistä.
  *
  * @author Viljami
  */
 public class Kirjanpito {
+
     private static Kirjanpito kirjanpito;
-    private Vector<Ainesosa> osat;
-    private Vector<Drinkki> drinkit;
-    private Vector<Drinkki> mahdolliset;
+    private final Vector<Ainesosa> osat;
+    private final Vector<Drinkki> drinkit;
+    private final Vector<Drinkki> mahdolliset;
 
     /**
      *
@@ -24,7 +26,7 @@ public class Kirjanpito {
     }
 
     /**
-     * 
+     *
      * Poistaa parametrina annetun ainesosan nimisen ainesosan jos mahdollista.
      *
      * @param nimi ainesosan nimi
@@ -35,9 +37,9 @@ public class Kirjanpito {
             osat.remove(osa);
         }
     }
-    
+
     /**
-     * 
+     *
      * Poistaa parametrina annetun drinkin nimisen drinkin jos mahdollista.
      *
      * @param nimi drinkin nimi
@@ -102,11 +104,11 @@ public class Kirjanpito {
         }
         return true;
     }
-    
+
     /**
      *
      * Päivittää tilanteen mahdollisista drinkeistä.
-     * 
+     *
      */
     public void paivitaMahdolliset() {
         mahdolliset.clear();
@@ -116,17 +118,17 @@ public class Kirjanpito {
             }
         }
     }
-    
+
     /**
-     * 
+     *
      * luo uuden kirjanpito olion jos sellaista ei vielä ole ja palauttaa sen.
      *
      * @return kirjanpito olio
      */
     public static Kirjanpito getInstance() {
-      if(kirjanpito == null) {
-         kirjanpito = new Kirjanpito();
-      }
-      return kirjanpito;
+        if (kirjanpito == null) {
+            kirjanpito = new Kirjanpito();
+        }
+        return kirjanpito;
     }
 }

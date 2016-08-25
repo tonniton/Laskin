@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * 
+ *
  * Luokka toteuttaa graafisessa käyttöliittymässä annetut komennot.
  *
  * @author Viljami
@@ -79,7 +79,7 @@ public class Kuuntelija implements ActionListener {
     }
 
     /**
-     * 
+     *
      * Lisaa parametrina annetun nimisen ainesosan.
      *
      * @param lisattava lisattava ainesosa
@@ -93,7 +93,7 @@ public class Kuuntelija implements ActionListener {
     }
 
     /**
-     * 
+     *
      * Poistaa valitun osan.
      *
      */
@@ -110,18 +110,18 @@ public class Kuuntelija implements ActionListener {
     }
 
     /**
-     * 
+     *
      * Käynnistää drinkin lisäys ikkunan, jossa voi lisätä drinkkejä.
      *
      */
     public void lisaaDrinkki() {
         drinkinlisaaja.run();
     }
-    
+
     /**
      *
      * Poistaa valitun drinkin valikoimasta.
-     * 
+     *
      */
     public void poistaDrinkki() {
         int valittu = drinkit.getSelectedIndex();
@@ -134,9 +134,9 @@ public class Kuuntelija implements ActionListener {
             drinkit.setSelectedIndex(valittu);
         }
     }
-    
+
     /**
-     * 
+     *
      * Antaa satunnaisen drinkin mahdollisista vaihtoehdoista.
      *
      */

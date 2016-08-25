@@ -8,16 +8,16 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * 
+ *
  * Luokka lukee tiedostosta sinne kirjoitetut drinkit.
  *
  * @author Viljami
  */
 public class Tiedostonlukija {
 
-    private File tiedosto;
-    private Scanner lukija;
-    private Kirjanpito kirjanpito;
+    private final File tiedosto;
+    private final Scanner lukija;
+    private final Kirjanpito kirjanpito;
 
     /**
      * fth
@@ -33,7 +33,7 @@ public class Tiedostonlukija {
     }
 
     /**
-     * 
+     *
      * Lukee tiedostossa olevat drinkit ja siirtää tiedot kirjanpito-olioon.
      *
      */
@@ -64,7 +64,7 @@ public class Tiedostonlukija {
             rivi = lukija.nextLine();
         }
     }
-    
+
     public boolean onkoTarkea(String onko) {
         if (onko.equals("true")) {
             return true;

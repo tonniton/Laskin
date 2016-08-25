@@ -5,14 +5,14 @@ import java.util.ArrayList;
 /**
  *
  * Luo rakenteen drinkkikoneessa käytettäville drinkeille.
- * 
+ *
  * @author Viljami
  */
 public class Drinkki {
 
-    private String nimi;
-    private ArrayList<Ainesosa> aineet;
-    private String resepti;
+    private final String nimi;
+    private final ArrayList<Ainesosa> aineet;
+    private final String resepti;
 
     /**
      *

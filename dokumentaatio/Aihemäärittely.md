@@ -4,6 +4,9 @@
 
 **ylimääräisiä toimintoja:** drinkkiohjeen lisääminen, drinkkiohjeen poisto
 
+**rakennekuvaus: **
+Drinkkikoneella on 
+
 ![Luokkakaavio](/dokumentaatio/luokkakaavio/WP_20160816_001.jpg "Luokkakaavio")
 
 **Sekvenssikaaviot: **

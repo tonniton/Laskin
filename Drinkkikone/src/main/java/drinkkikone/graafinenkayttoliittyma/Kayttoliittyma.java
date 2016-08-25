@@ -24,7 +24,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 
 /**
- * 
+ *
  * Luokka luo käytettävän graafisen käyttöliittymän.
  *
  * @author Viljami
@@ -64,13 +64,13 @@ public class Kayttoliittyma implements Runnable {
         tiedot.setEnabled(false);
         tiedot.setDisabledTextColor(Color.BLACK);
         JScrollPane resepti = new JScrollPane(tiedot);
-        
+
         luoDrinkkiTiedonpaivittaja(drinkit, tiedot);
         luoTekstiAlue(osat, drinkit, tiedot, container);
 
         JPanel valikko = luovalikko(osat, drinkit);
         container.add(valikko, BorderLayout.SOUTH);
-        
+
         frame.addWindowListener(new IkkunaKuuntelija(drinkit));
         luoOtsikot(container);
     }
@@ -83,7 +83,7 @@ public class Kayttoliittyma implements Runnable {
         JButton lisaaDrinkki = new JButton("Lisaa drinkki");
         JButton poistaDrinkki = new JButton("poista drinkki");
         JButton randomDrinkki = new JButton("random Drinkki");
-        
+
         panel.add(syote);
         panel.add(lisaa);
         panel.add(poista);
@@ -92,7 +92,7 @@ public class Kayttoliittyma implements Runnable {
         panel.add(randomDrinkki);
 
         Kuuntelija kuuntelija = new Kuuntelija(vasen, oikea, panel);
-        
+
         syote.addActionListener(kuuntelija);
         lisaa.addActionListener(kuuntelija);
         poista.addActionListener(kuuntelija);
@@ -102,35 +102,35 @@ public class Kayttoliittyma implements Runnable {
 
         return panel;
     }
-    
+
     private void luoTekstiAlue(JList osat, JList drinkit, JTextArea tiedot, Container container) {
         JPanel menu = new JPanel(new GridLayout(1, 3));
-        
+
         JScrollPane scrollPane = new JScrollPane();
-	scrollPane.getViewport().add(osat);
+        scrollPane.getViewport().add(osat);
         menu.add(scrollPane);
         JScrollPane scrollPane2 = new JScrollPane();
-	scrollPane2.getViewport().add(drinkit);
+        scrollPane2.getViewport().add(drinkit);
         menu.add(scrollPane2);
         JScrollPane scrollPane3 = new JScrollPane();
-	scrollPane3.getViewport().add(tiedot);
+        scrollPane3.getViewport().add(tiedot);
         menu.add(scrollPane3);
-        
+
         container.add(menu);
     }
-    
+
     private void luoDrinkkiTiedonpaivittaja(JList drinkit, JTextArea tiedot) {
         drinkit.addListSelectionListener((ListSelectionEvent ev) -> {
-                JList list = (JList) ev.getSource();
-                if (!list.getSelectedValuesList().isEmpty()) {
-                    ArrayList selectionValues = (ArrayList) list.getSelectedValuesList();
-                    tiedot.setText(selectionValues.get(0).toString());
-                } else {
-                    tiedot.setText("");
-                }
+            JList list = (JList) ev.getSource();
+            if (!list.getSelectedValuesList().isEmpty()) {
+                ArrayList selectionValues = (ArrayList) list.getSelectedValuesList();
+                tiedot.setText(selectionValues.get(0).toString());
+            } else {
+                tiedot.setText("");
+            }
         });
     }
-    
+
     private void luoOtsikot(Container container) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JLabel otsikko1 = new JLabel("Ainesosat: ");

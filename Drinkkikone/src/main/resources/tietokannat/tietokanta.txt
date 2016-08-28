@@ -1,7 +1,3 @@
-gt#aa
-gin#4cl#true
-tonic#12cl#false
-
 rommi#aaa
 rommi#8cl#true
 
@@ -20,4 +16,49 @@ kaakaolikööri#2 cl#true
 maito#8 cl#true
 jäitä# #false
 pilli# #false
+
+jallubanaanicola#Ei ohjetta. 
+kola#16cl#true
+banaanilikööri#2cl#true
+jaloviina*#2cl#true
+
+gimlet#Laita ravistimeen jäitä, lisää gin ja limemehu, ravista ja siivilöi lasiin. Koriste limelohkolla. Suomessa drinkki tarjoillaan yleisesti myös rakentaen old fashioned (on the rocks) lasiin jäiden kera.  
+limemehu#2cl#true
+gin#2cl#true
+
+James Bond Martini #"A dry martini...In a deep champagne goblet...Three measures of Gordon's (gin), one of vodka, half a measure of Kina Lillet (a type of vermouth). Shake it very well until it's ice-cold, then add a large thin slice of lemon-peel. Got it?" [Casino Royale, Chapter 7] 
+vermutti#0,5cl#true
+vodka#1cl#true
+gin#3cl#true
+
+suomursu# 
+absintti#2cl#true
+appelsiinimehu#1dl#true
+
+mengele#Lataa aineet sekaisin tuoppiin, juo ja humallu. 
+absintti#8cl#true
+olut#4cl#true
+kola#3dl#true
+
+lucifer#Kippaa lasiin reilusti jäitä. Lisää sekaan viinakset, hämmennä hieman, pidennä kokiksella ja lisää sitruunaviipale.  
+kola#20cl#true
+absintti#1cl#true
+yrttilikööri#2cl#true
+vodka#1cl#true
+
+godfather#Täytä lasi puolilleen jääpaloja ja kaada joukkoon skottiviski ja mantellilikööri. Hämmennä kevyesti ja tarjoile. 
+mantelilikööri#2cl#true
+viski#2cl#true
+jääpaloja# #false
+
+gin & tonic#Täytä lasi puolilleen jäitä, lisää gini ja pidennä tonic-vedellä. Purista joukkoon muutaman limeviipaleen mehut ja pudota viipaleet lasiin koristeeksi. Tarjoile, niin halutessasi, pillin kera. 
+gin#4cl#true
+tonic#12cl#false
+lime#0,25kpl#false
+pilli#1kpl#false
+
+Keltainen Kiinalainen#Laita viskilasiin 1 jääkuutio, lisää 2cl viskiä ja lopuksi 2cl Pernoud'ta. Nauti. 
+anisviina#2cl#true
+viski#2cl#true
+jääpaloja# #false
 
